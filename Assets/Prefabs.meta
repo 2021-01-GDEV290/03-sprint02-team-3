@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<< Updated upstream:Assets/Prefabs.meta
 guid: 1cba2655d17626948a08910c463e2302
+=======
+guid: bcf7a6ec906540d478b39627227e3504
+>>>>>>> Stashed changes:Assets/Custom Assets/Prefabs.meta
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}

@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<< Updated upstream:Assets/Scripts.meta
 guid: 85678d8dd016ef94db48deb83a8f0f8a
+=======
+guid: e2d8c11944958184aadf33273adc82af
+>>>>>>> Stashed changes:Assets/Custom Assets/Scripts.meta
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}
