@@ -25,7 +25,7 @@ public class Door : MonoBehaviour
     {
         if (collide && Input.GetKeyDown(KeyCode.E))
         {
-            gameObject.SetActive(false);
+            Destroy(this.gameObject);
         }
     }
 }

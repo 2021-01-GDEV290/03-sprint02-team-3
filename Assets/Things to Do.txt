@@ -1,0 +1,16 @@
+Ranked in Importance:
+
+- Make a UI for the player (only health for now)
+- Make a weapon for the player
+- Expand map
+- Create a spawn system for the zombies
+  - a) where do they spawn?
+  - b) how many spawn at a time?
+  - c) how many can be spawned at once?
+- Create point system
+- Create player enhancements (perks)
+- Create weapon upgrade system
+
+Optional if Enough Time:
+
+- Create a round system
