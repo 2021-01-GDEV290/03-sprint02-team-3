@@ -4,28 +4,29 @@ using UnityEngine;
 
 public class Door : MonoBehaviour
 {
-    public bool collide = false;
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if(collision.gameObject.tag == "Player")
-        {
-            collide = true;
-        }
-    }
+    private GameObject player;
+    public int distance;
 
-    private void OnCollisionExit2D(Collision2D collision)
+    public bool canBeOpened;
+
+    private void Start()
     {
-        if(collision.gameObject.tag == "Player")
-        {
-            collide = false;
-        }
+        player = GameObject.Find("Player");
+        canBeOpened = false;
     }
 
     private void Update()
     {
-        if (collide && Input.GetKeyDown(KeyCode.E))
+        if((player.transform.position - this.transform.position).magnitude < distance)
         {
-            Destroy(this.gameObject);
+            canBeOpened = true;
+            if (Input.GetKeyDown(KeyCode.E))
+            {
+                Destroy(this.gameObject);
+            }
+        } else
+        {
+            canBeOpened = false;
         }
     }
 }
