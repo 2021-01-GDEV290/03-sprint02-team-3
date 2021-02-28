@@ -18,5 +18,9 @@ public class DamageTracker : MonoBehaviour
                 return;
             }
         }
+        if(this.gameObject.tag == "Bullet")
+        {
+            Destroy(this.gameObject);
+        }
     }
 }
