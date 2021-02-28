@@ -6,10 +6,12 @@ public class PlayerController : MonoBehaviour
 {
     [Header("Set In Inspector")]
     public float moveSpeed;
+    public Camera cam;
 
     private float xInput;
     private float yInput;
     private Rigidbody2D rb;
+    private Vector2 mousePos;
 
     private void Start()
     {
@@ -23,10 +25,15 @@ public class PlayerController : MonoBehaviour
     {
         xInput = Input.GetAxisRaw("Horizontal") * moveSpeed;
         yInput = Input.GetAxisRaw("Vertical") * moveSpeed;
+
+        mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
     }
 
     private void FixedUpdate()
     {
         rb.velocity = new Vector3(xInput, yInput, 0);
+
+        Vector2 lookDir = mousePos - rb.position;
+        rb.rotation = Mathf.Atan2(lookDir.y, lookDir.x) * Mathf.Rad2Deg - 90f;
     }
 }

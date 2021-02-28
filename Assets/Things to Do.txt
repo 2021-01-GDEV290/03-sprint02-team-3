@@ -1,6 +1,6 @@
 Ranked in Importance:
 
-- Make a UI for the player (only health for now)
+- !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!Make a UI for the player
 - Make a weapon for the player
 - Expand map
 - Create a spawn system for the zombies
