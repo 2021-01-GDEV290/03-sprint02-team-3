@@ -6,6 +6,7 @@ public class Door : MonoBehaviour
 {
     private GameObject player;
     public int distance;
+    public int pointsNeeded;
 
     public bool canBeOpened;
 
@@ -20,8 +21,9 @@ public class Door : MonoBehaviour
         if((player.transform.position - this.transform.position).magnitude < distance)
         {
             canBeOpened = true;
-            if (Input.GetKeyDown(KeyCode.E))
+            if (Input.GetKeyDown(KeyCode.E) && PointsTracker.points >= pointsNeeded)
             {
+                PointsTracker.points -= pointsNeeded;
                 Destroy(this.gameObject);
             }
         } else

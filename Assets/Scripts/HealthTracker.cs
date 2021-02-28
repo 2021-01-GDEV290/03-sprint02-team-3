@@ -10,6 +10,10 @@ public class HealthTracker : MonoBehaviour
     public void Damage(int damage)
     {
         health = health - damage;
-        if(health <= 0) this.gameObject.SetActive(false);
+        if(health <= 0)
+        {
+            if (this.gameObject.tag == "Zombie") PointsTracker.points++;
+            Destroy(this.gameObject);
+        }
     }
 }

@@ -6,11 +6,11 @@ using UnityEngine.UI;
 public class InteractText : MonoBehaviour
 {
     public GameObject door;
-    public string text;
+    public int pointsNeeded;
 
     private void Start()
     {
-        text = this.GetComponent<Text>().text;
+        pointsNeeded = door.gameObject.GetComponent<Door>().pointsNeeded;
     }
 
     private void Update()
@@ -21,7 +21,7 @@ public class InteractText : MonoBehaviour
         }
         if (door.GetComponent<Door>().canBeOpened)
         {
-            this.GetComponent<Text>().text = text;
+            this.GetComponent<Text>().text = "Press E\nto open\n(" + pointsNeeded + " points)";
         } else
         {
             this.GetComponent<Text>().text = "";
