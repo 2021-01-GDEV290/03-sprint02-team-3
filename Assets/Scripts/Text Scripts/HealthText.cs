@@ -13,7 +13,7 @@ public class HealthText : MonoBehaviour
 
     private void Start()
     {
-        currentHealth = player.GetComponent<HealthTracker>().health;
+        currentHealth = player.GetComponent<HealthTracker>().maxHealth;
     }
 
     private void Update()
