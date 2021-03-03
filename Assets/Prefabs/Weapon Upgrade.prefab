@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 958083441270069695}
   - component: {fileID: 3778186685421545295}
   - component: {fileID: 3079935666864953983}
+  - component: {fileID: 2507569169493293494}
   m_Layer: 8
   m_Name: Weapon Upgrade
   m_TagString: Obstacle
@@ -109,3 +110,21 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 2.4094908, y: 1.5866427}
   m_EdgeRadius: 0
+--- !u!114 &2507569169493293494
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8255399909252980106}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65b5aed66e9e4754c84c7c44e4a1c2de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  firstUpgradePrice: 30
+  secondUpgradePrice: 50
+  thirdUpgradePrice: 100
+  distance: 2
+  bullet: {fileID: 0}
+  canBeBought: 0
