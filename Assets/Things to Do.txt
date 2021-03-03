@@ -8,8 +8,8 @@ Ranked in Importance:
   - b) how many spawn at a time?
   - c) how many can be spawned at once?
 - !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!Create point system
-- Create player enhancements (perks)
-- Create weapon upgrade system
+- !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!Create player enhancements (perks)
+- !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!Create weapon upgrade system
 
 Optional if Enough Time:
 
