@@ -5,7 +5,6 @@ using UnityEngine;
 public class HealthTracker : MonoBehaviour
 {
     public int maxHealth;
-
     public int health;
 
     private void Start()
@@ -18,8 +17,7 @@ public class HealthTracker : MonoBehaviour
         health = health - damage;
         if(health <= 0)
         {
-            if (this.gameObject.tag == "Zombie") PointsTracker.points += 500;
-            Destroy(this.gameObject);
+            if (this.gameObject.tag == "Zombie") this.GetComponent<ZombiePoints>().AddPoints();
         }
     }
 }

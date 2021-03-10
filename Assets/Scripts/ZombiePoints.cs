@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class ZombiePoints : MonoBehaviour
 {
-    void Update()
+    public int points;
+
+    public void AddPoints()
     {
-        if(this.gameObject.GetComponent<HealthTracker>().health <= 0)
-        {
-            PointsTracker.points++;
-        }
+        PointsTracker.points += points;
+        Destroy(this.gameObject);
     }
 }
