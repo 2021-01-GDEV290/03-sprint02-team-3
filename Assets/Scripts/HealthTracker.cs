@@ -17,7 +17,11 @@ public class HealthTracker : MonoBehaviour
         health = health - damage;
         if(health <= 0)
         {
-            if (this.gameObject.tag == "Zombie") this.GetComponent<ZombiePoints>().AddPoints();
+            if (this.gameObject.tag == "Zombie")
+            {
+                this.GetComponent<ZombiePoints>().AddPoints();
+                ZombieSpawning.zombiesKilledThisRound++;
+            }
         }
     }
 }
