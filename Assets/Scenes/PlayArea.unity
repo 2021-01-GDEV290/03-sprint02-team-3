@@ -1064,7 +1064,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Health: 5'
+  m_Text: 'Health: 3'
 --- !u!222 &187291330
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1833,6 +1833,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ca6af036f69286499f0175ec32e66ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentRound: 1
+  numberOfZombiesRoundOne: 5
+  maxZombieSpawnsThisRound: 0
+  zombiesSpawnedThisRound: 0
+  zombieKillsTracked: 0
   spawnPoints:
   - {fileID: 447872769}
   - {fileID: 1113841451}
@@ -1843,6 +1848,8 @@ MonoBehaviour:
   - {fileID: 1354968645}
   - {fileID: 1632756745}
   zombiePrefab: {fileID: 7698045810665253346, guid: 97417e3829f7ff2498540391d0655d66, type: 3}
+  nextRoundDelay: 10
+  delayBetweenSpawns: 1.5
 --- !u!1 &547411059
 GameObject:
   m_ObjectHideFlags: 0
