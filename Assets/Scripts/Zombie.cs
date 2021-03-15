@@ -6,7 +6,6 @@ public class Zombie : MonoBehaviour
 {
     [Header("Set in Inspector")]
     public int damage;
-    public string[] tags;
 
     bool runContinueDamage = false;
 
