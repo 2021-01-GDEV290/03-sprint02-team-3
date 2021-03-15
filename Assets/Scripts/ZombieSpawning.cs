@@ -5,11 +5,11 @@ using UnityEngine;
 public class ZombieSpawning : MonoBehaviour
 {
     [Header("For Show Only")]
-    public int currentRound = 1; // The current round the player is on
+    public static int currentRound = 1; // The current round the player is on
     public int numberOfZombiesRoundOne = 5; // The number of zombies that can spawn in the first round
     //                                         (changing this changes amount of zombies per round)
     
-    public int maxZombieSpawnsThisRound; // The number of zombies that can spawn on this round
+    public static int maxZombieSpawnsThisRound; // The number of zombies that can spawn on this round
     //                                      (this is determined by the first round spawns)
 
     public int zombiesSpawnedThisRound = 0; // The amount of zombies spawned this round

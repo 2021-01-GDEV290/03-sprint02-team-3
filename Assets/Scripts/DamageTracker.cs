@@ -10,6 +10,10 @@ public class DamageTracker : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        if (this.gameObject.tag == "Bullet")
+        {
+            Destroy(this.gameObject);
+        }
         for (int i = 0; i < tags.Length; i++)
         {
             if (collision.gameObject.tag == tags[i])
@@ -17,10 +21,6 @@ public class DamageTracker : MonoBehaviour
                 collision.gameObject.GetComponent<HealthTracker>().Damage(damage);
                 return;
             }
-        }
-        if(this.gameObject.tag == "Bullet")
-        {
-            Destroy(this.gameObject);
         }
     }
 }

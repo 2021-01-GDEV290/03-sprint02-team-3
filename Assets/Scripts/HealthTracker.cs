@@ -22,6 +22,7 @@ public class HealthTracker : MonoBehaviour
                 this.GetComponent<ZombiePoints>().AddPoints();
                 ZombieSpawning.zombiesKilledThisRound++;
             }
+            Destroy(this.gameObject);
         }
     }
 }
