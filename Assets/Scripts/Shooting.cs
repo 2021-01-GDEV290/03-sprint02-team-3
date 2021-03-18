@@ -6,6 +6,7 @@ public class Shooting : MonoBehaviour
 {
     public Transform firePoint;
     public GameObject bulletPrefab;
+    public Animator animator;
 
     public float bulletForce = 20f;
 
@@ -23,6 +24,7 @@ public class Shooting : MonoBehaviour
     {
         if(Input.GetButtonDown("Fire1") && canShoot && currentAmmo > 0)
         {
+            animator.SetBool("Shoot", true);
             Shoot();
         }
         if(Input.GetKeyDown(KeyCode.R))
@@ -44,6 +46,7 @@ public class Shooting : MonoBehaviour
     void TimeBeforeNextShoot()
     {
         canShoot = true;
+        animator.SetBool("Shoot", false);
     }
 
     void Reload()
