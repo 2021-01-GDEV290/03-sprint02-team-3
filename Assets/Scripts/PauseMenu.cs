@@ -52,6 +52,7 @@ public class PauseMenu : MonoBehaviour
         pauseMenuUI.SetActive(false);
         Time.timeScale = 1f;
         trasition.SetTrigger("Start");
+        GameObject.Find("Player").GetComponent<PlayerController>().enabled = false;
         yield return new WaitForSeconds(trasitionTime);
         GameIsPaused = false;
         ClearGameProgress();
