@@ -22,7 +22,7 @@ public class Shooting : MonoBehaviour
 
     void Update()
     {
-        if(Input.GetButtonDown("Fire1") && canShoot && currentAmmo > 0)
+        if(Input.GetButtonDown("Fire1") && canShoot && currentAmmo > 0 && !(PauseMenu.GameIsPaused))
         {
             animator.SetBool("Shoot", true);
             Shoot();
