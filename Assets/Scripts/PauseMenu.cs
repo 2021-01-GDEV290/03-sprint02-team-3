@@ -54,6 +54,13 @@ public class PauseMenu : MonoBehaviour
         trasition.SetTrigger("Start");
         yield return new WaitForSeconds(trasitionTime);
         GameIsPaused = false;
+        ClearGameProgress();
         SceneManager.LoadScene("TitleScreen");
+    }
+
+    void ClearGameProgress()
+    {
+        ZombieSpawning.ResetGame(); //Reset round
+        PointsTracker.points = 0;
     }
 }
