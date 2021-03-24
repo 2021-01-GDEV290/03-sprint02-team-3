@@ -28,7 +28,9 @@ public class PauseMenu : MonoBehaviour
 
     public void Resume()
     {
-        
+        pauseMenuUI.SetActive(false);
+        Time.timeScale = 1f;
+        GameIsPaused = false;
     }
 
     void Pause()
@@ -38,14 +40,14 @@ public class PauseMenu : MonoBehaviour
         GameIsPaused = true;
     }
 
-    public void LoadOptionsMenu()
-    {
-        SceneManager.LoadScene("Options");
-    }
-
-    public void QuitGame()
+    public void QuitToMenu()
     {
         StartCoroutine(QuitGameCoroutine());
+    }
+
+    public void CloseApplication()
+    {
+        Application.Quit();
     }
     IEnumerator QuitGameCoroutine()
     {
@@ -62,6 +64,6 @@ public class PauseMenu : MonoBehaviour
     void ClearGameProgress()
     {
         ZombieSpawning.ResetGame(); //Reset round
-        PointsTracker.points = 0;
+        PointsTracker.points = 0; //Set points to 0
     }
 }

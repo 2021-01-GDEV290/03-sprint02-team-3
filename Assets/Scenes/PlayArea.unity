@@ -2311,7 +2311,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!95 &553250721
 Animator:
   serializedVersion: 3
@@ -3009,7 +3009,7 @@ GameObject:
   - component: {fileID: 867149122}
   - component: {fileID: 867149121}
   m_Layer: 5
-  m_Name: Options Button
+  m_Name: Quit to Menu Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3033,7 +3033,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 452.2755, y: 119.7171}
+  m_SizeDelta: {x: 712.50806, y: 119.7171}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &867149121
 MonoBehaviour:
@@ -3080,7 +3080,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1220633202}
         m_TargetAssemblyTypeName: PauseMenu, Assembly-CSharp
-        m_MethodName: LoadOptionsMenu
+        m_MethodName: QuitToMenu
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4590,7 +4590,7 @@ GameObject:
   - component: {fileID: 1244100231}
   - component: {fileID: 1244100230}
   m_Layer: 5
-  m_Name: Quit Button
+  m_Name: Close Application Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4614,7 +4614,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0.000062757, y: -200}
-  m_SizeDelta: {x: 298.34106, y: 119.717224}
+  m_SizeDelta: {x: 951.3772, y: 119.717224}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1244100230
 MonoBehaviour:
@@ -4661,7 +4661,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1220633202}
         m_TargetAssemblyTypeName: PauseMenu, Assembly-CSharp
-        m_MethodName: QuitGame
+        m_MethodName: CloseApplication
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -5492,10 +5492,10 @@ RectTransform:
   m_Father: {fileID: 1244100229}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_SizeDelta: {x: 1000, y: 120}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1508240518
 MonoBehaviour:
@@ -5545,7 +5545,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: QUIT
+  m_Text: CLOSE APPLICATION
 --- !u!222 &1508240520
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -6118,10 +6118,10 @@ RectTransform:
   m_Father: {fileID: 867149120}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_SizeDelta: {x: 700, y: 120}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1746967706
 MonoBehaviour:
@@ -6163,7 +6163,7 @@ MonoBehaviour:
     m_FontSize: 100
     m_FontStyle: 1
     m_BestFit: 0
-    m_MinSize: 1
+    m_MinSize: 0
     m_MaxSize: 140
     m_Alignment: 4
     m_AlignByGeometry: 0
@@ -6171,7 +6171,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: OPTIONS
+  m_Text: QUIT TO MENU
 --- !u!222 &1746967708
 CanvasRenderer:
   m_ObjectHideFlags: 0
