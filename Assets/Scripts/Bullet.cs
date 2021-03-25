@@ -10,7 +10,7 @@ public class Bullet : MonoBehaviour
     {
         if(collision.gameObject.tag == "Zombie")
         {
-            collision.gameObject.GetComponent<HealthTracker>().health -= damage;
+            collision.gameObject.GetComponent<Zombie>().Damage(damage);
         }
         Destroy(this.gameObject);
     }

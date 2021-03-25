@@ -24,7 +24,8 @@ public class Door : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.E) && PointsTracker.points >= pointsNeeded)
             {
                 PointsTracker.points -= pointsNeeded;
-                Destroy(this.gameObject);
+                Debug.Log("Door has been bought for " + pointsNeeded + " points.");
+                gameObject.SetActive(false);
             }
         } else
         {

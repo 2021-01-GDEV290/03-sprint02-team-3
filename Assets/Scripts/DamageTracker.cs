@@ -18,6 +18,11 @@ public class DamageTracker : MonoBehaviour
         {
             if (collision.gameObject.tag == tags[i])
             {
+                if(collision.gameObject.tag == "Zombie")
+                {
+                    collision.gameObject.GetComponent<Zombie>().Damage(damage);
+                    return;
+                }
                 collision.gameObject.GetComponent<HealthTracker>().Damage(damage);
                 return;
             }

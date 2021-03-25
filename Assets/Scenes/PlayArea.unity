@@ -132,7 +132,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3771057363648525406, guid: 0b5d6523c0617d5459974ca78555acc3, type: 3}
       propertyPath: m_RootOrder
-      value: 8
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 3771057363648525406, guid: 0b5d6523c0617d5459974ca78555acc3, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2150,7 +2150,7 @@ MonoBehaviour:
   - {fileID: 1269783298}
   - {fileID: 1354968645}
   - {fileID: 1632756745}
-  zombiePrefab: {fileID: 7698045810665253346, guid: 97417e3829f7ff2498540391d0655d66, type: 3}
+  zombiePrefab: {fileID: 7698045810665253346, guid: 16bb25c0a2888aa4ba8f70808221420c, type: 3}
   nextRoundDelay: 10
   delayBetweenSpawns: 1.5
 --- !u!1 &547411059
@@ -4493,7 +4493,7 @@ RectTransform:
   - {fileID: 553250725}
   - {fileID: 359057993}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
