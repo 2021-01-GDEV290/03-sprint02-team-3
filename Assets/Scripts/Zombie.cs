@@ -14,6 +14,8 @@ public class Zombie : MonoBehaviour
     [Header("Damage Tracking")]
     public int damage = 1;
     public string[] tags;
+    public bool isTouching = false;
+    Collision2D col;
 
     [Header("Point Tracking")]
     public int pointsGivenOnHit = 1;
@@ -34,9 +36,30 @@ public class Zombie : MonoBehaviour
         {
             if (collision.gameObject.tag == tags[i])
             {
-                collision.gameObject.GetComponent<HealthTracker>().Damage(damage);
-                return;
+                isTouching = true;
+                col = collision;
+                InvokeRepeating("DamagePlayer", 0f, 1f);
             }
+        }
+    }
+
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        for (int i = 0; i < tags.Length; i++)
+        {
+            if (collision.gameObject.tag == tags[i])
+            {
+                isTouching = false;
+                col = null;
+            }
+        }
+    }
+
+    void DamagePlayer()
+    {
+        if(isTouching)
+        {
+            col.gameObject.GetComponent<HealthTracker>().Damage(damage);
         }
     }
 
