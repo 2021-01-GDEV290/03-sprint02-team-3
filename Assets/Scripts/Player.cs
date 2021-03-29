@@ -15,6 +15,10 @@ public class Player : MonoBehaviour
     [Header("Health Tracker")]
     public int maxHealth;
     public int health;
+    public float timeBeforeRegenStart;
+    public float timeBetweenRegens;
+
+    bool canRegen;
 
     [Header("Shooting")]
     public Transform firePoint;
@@ -23,6 +27,9 @@ public class Player : MonoBehaviour
     public float bulletForce = 20f;
     public int maxAmmo = 15;
     public int currentAmmo;
+    public float reloadDelay;
+    public float shootingDelay;
+
     bool canShoot = true;
 
     [Header("Point Tracker")]
@@ -62,7 +69,14 @@ public class Player : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.R))
         {
             canShoot = false;
-            Invoke("Reload", 1f);
+            Invoke("Reload", reloadDelay);
+        }
+
+        // Health
+        if (health != maxHealth && !canRegen)
+        {
+            canRegen = true;
+            InvokeRepeating("Regen", timeBeforeRegenStart, timeBetweenRegens);
         }
 
         // Points
@@ -80,6 +94,8 @@ public class Player : MonoBehaviour
 
     public void Damage(int damage)
     {
+        canRegen = false;
+        CancelInvoke("Regen");
         health = health - damage;
         if (health <= 0)
         {
@@ -94,7 +110,7 @@ public class Player : MonoBehaviour
         rb.AddForce(firePoint.up * bulletForce, ForceMode2D.Impulse);
         currentAmmo--;
         canShoot = false;
-        Invoke("TimeBeforeNextShoot", 0.2f);
+        Invoke("TimeBeforeNextShoot", shootingDelay);
     }
 
     void TimeBeforeNextShoot()
@@ -107,5 +123,22 @@ public class Player : MonoBehaviour
     {
         currentAmmo = maxAmmo;
         canShoot = true;
+    }
+
+    void Regen()
+    {
+        if (canRegen)
+        {
+            health++;
+            if (health == maxHealth)
+            {
+                canRegen = false;
+                CancelInvoke("Regen");
+            }
+        }
+        else
+        {
+            CancelInvoke("Regen");
+        }
     }
 }

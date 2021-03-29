@@ -42,7 +42,6 @@ GameObject:
   - component: {fileID: 7396096239217407346}
   - component: {fileID: 7396096239217407357}
   - component: {fileID: 7396096239217407359}
-  - component: {fileID: 2713753363133027983}
   - component: {fileID: 115958772618798923}
   - component: {fileID: -6470361127330926277}
   m_Layer: 0
@@ -155,18 +154,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &2713753363133027983
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7396096239217407353}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 11713d7819444da42a03c6d229a79f9f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!95 &115958772618798923
 Animator:
   serializedVersion: 3
@@ -202,10 +189,14 @@ MonoBehaviour:
   cam: {fileID: 0}
   maxHealth: 3
   health: 3
+  timeBeforeRegenStart: 3
+  timeBetweenRegens: 0.5
   firePoint: {fileID: 0}
   bulletPrefab: {fileID: 0}
   animator: {fileID: 115958772618798923}
   bulletForce: 20
   maxAmmo: 15
   currentAmmo: 0
+  reloadDelay: 1
+  shootingDelay: 0.2
   trackedPoints: 0
