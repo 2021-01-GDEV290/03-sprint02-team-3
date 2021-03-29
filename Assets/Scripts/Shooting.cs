@@ -29,6 +29,7 @@ public class Shooting : MonoBehaviour
         }
         if(Input.GetKeyDown(KeyCode.R))
         {
+            canShoot = false;
             Invoke("Reload", 1f);
         }
     }
@@ -52,5 +53,6 @@ public class Shooting : MonoBehaviour
     void Reload()
     {
         currentAmmo = maxAmmo;
+        canShoot = true;
     }
 }

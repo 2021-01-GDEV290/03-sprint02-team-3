@@ -19,7 +19,7 @@ GameObject:
   - component: {fileID: 4968840365944648124}
   - component: {fileID: -5791218247402362061}
   m_Layer: 0
-  m_Name: Updated Zombie
+  m_Name: Boss Zombie
   m_TagString: Zombie
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -34,7 +34,7 @@ Transform:
   m_GameObject: {fileID: 7698045810665253346}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -2.351592, y: 1.257437, z: 1.8064345}
-  m_LocalScale: {x: 0.4, y: 0.4, z: 0.4}
+  m_LocalScale: {x: 0.8, y: 0.8, z: 0.8}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -79,7 +79,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: a95a711420c118a44b3d4cad8c6cd428, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 42cff4c0dd1cc6040b6b09125b936f84, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -140,12 +140,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   path: {fileID: 0}
-  maxHealth: 3
-  health: 3
-  damage: 1
+  maxHealth: 25
+  health: 25
+  damage: 3
   isTouching: 0
-  pointsGivenOnHit: 1
-  pointsGivenOnKill: 3
+  pointsGivenOnHit: 3
+  pointsGivenOnKill: 20
 --- !u!114 &7698045810665253273
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -232,7 +232,7 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7698045810665253346}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 11e2aac93b7a5974a85be1ae8aaa2f7e, type: 2}
   m_CullingMode: 0

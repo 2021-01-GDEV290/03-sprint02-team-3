@@ -12,19 +12,19 @@ public class PlayerHealthRegen : MonoBehaviour
     {
         player = this.gameObject;
         canRegen = false;
-        currentHealth = this.gameObject.GetComponent<HealthTracker>().maxHealth;
+        currentHealth = this.gameObject.GetComponent<Player>().maxHealth;
     }
 
     private void Update()
     {
-        if(player.GetComponent<HealthTracker>().maxHealth == currentHealth)
+        if(player.GetComponent<Player>().maxHealth == currentHealth)
         {
             canRegen = false;
         }
-        if(player.GetComponent<HealthTracker>().health != currentHealth)
+        if(player.GetComponent<Player>().health != currentHealth)
         {
             canRegen = false;
-            currentHealth = player.GetComponent<HealthTracker>().health;
+            currentHealth = player.GetComponent<Player>().health;
             Invoke("RegenDelay", 3f);
         }
         if(canRegen)
@@ -40,14 +40,15 @@ public class PlayerHealthRegen : MonoBehaviour
 
     void HealthRegen()
     {
-        HealthTracker temp = player.GetComponent<HealthTracker>();
-        if(temp.health == temp.maxHealth)
+        int tempHealth = player.GetComponent<Player>().health;
+        int tempMaxHealth = player.GetComponent<Player>().maxHealth;
+        if(tempHealth == tempMaxHealth)
         {
             return;
         }
         if(canRegen)
         {
-            player.GetComponent<HealthTracker>().health++;
+            player.GetComponent<Player>().health++;
         }
     }
 }

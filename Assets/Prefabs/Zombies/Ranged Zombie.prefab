@@ -19,7 +19,7 @@ GameObject:
   - component: {fileID: 4968840365944648124}
   - component: {fileID: -5791218247402362061}
   m_Layer: 0
-  m_Name: Updated Zombie
+  m_Name: Ranged Zombie
   m_TagString: Zombie
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -79,7 +79,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: a95a711420c118a44b3d4cad8c6cd428, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 915fae11d752f1b478c3483255de2e13, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

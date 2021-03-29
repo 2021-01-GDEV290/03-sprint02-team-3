@@ -7,20 +7,15 @@ public class HealthText : MonoBehaviour
 {
     [Header("Set in Inspector")]
     public Text txt;
-    public GameObject player;
+    public Player player;
 
     int currentHealth;
 
-    private void Start()
-    {
-        currentHealth = player.GetComponent<HealthTracker>().maxHealth;
-    }
-
     private void Update()
     {
-        if(currentHealth != player.GetComponent<HealthTracker>().health)
+        if(currentHealth != player.health)
         {
-            currentHealth = player.GetComponent<HealthTracker>().health;
+            currentHealth = player.health;
             UpdateHealth();
         }
     }

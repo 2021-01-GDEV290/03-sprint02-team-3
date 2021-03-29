@@ -13,7 +13,6 @@ public class Zombie : MonoBehaviour
 
     [Header("Damage Tracking")]
     public int damage = 1;
-    public string[] tags;
     public bool isTouching = false;
     Collision2D col;
 
@@ -32,26 +31,20 @@ public class Zombie : MonoBehaviour
         {
             Destroy(gameObject);
         }
-        for (int i = 0; i < tags.Length; i++)
+        if (collision.gameObject.tag == "Player")
         {
-            if (collision.gameObject.tag == tags[i])
-            {
-                isTouching = true;
-                col = collision;
-                InvokeRepeating("DamagePlayer", 0f, 1f);
-            }
+            isTouching = true;
+            col = collision;
+            InvokeRepeating("DamagePlayer", 0f, 1f);
         }
     }
 
     private void OnCollisionExit2D(Collision2D collision)
     {
-        for (int i = 0; i < tags.Length; i++)
+        if (collision.gameObject.tag == "Player")
         {
-            if (collision.gameObject.tag == tags[i])
-            {
-                isTouching = false;
-                col = null;
-            }
+            isTouching = false;
+            col = null;
         }
     }
 
@@ -59,7 +52,10 @@ public class Zombie : MonoBehaviour
     {
         if(isTouching)
         {
-            col.gameObject.GetComponent<HealthTracker>().Damage(damage);
+            col.gameObject.GetComponent<Player>().Damage(damage);
+        } else
+        {
+            CancelInvoke();
         }
     }
 
@@ -68,11 +64,11 @@ public class Zombie : MonoBehaviour
         health = health - damage;
         if (health <= 0)
         {
-            PointsTracker.points += pointsGivenOnKill;
+            Player.points += pointsGivenOnKill;
             ZombieSpawning.zombiesKilledThisRound++;
             Destroy(this.gameObject);
             return;
         }
-        PointsTracker.points += pointsGivenOnHit;
+        Player.points += pointsGivenOnHit;
     }
 }

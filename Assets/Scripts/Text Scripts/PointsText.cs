@@ -12,9 +12,9 @@ public class PointsText : MonoBehaviour
 
     private void Update()
     {
-        if (currentPoints != PointsTracker.points)
+        if (currentPoints != Player.points)
         {
-            currentPoints = PointsTracker.points;
+            currentPoints = Player.points;
             UpdatePoints();
         }
     }

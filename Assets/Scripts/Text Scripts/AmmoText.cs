@@ -7,20 +7,15 @@ public class AmmoText : MonoBehaviour
 {
     [Header("Set in Inspector")]
     public Text txt;
-    public GameObject player;
+    public Player player;
 
     int currentAmmo;
 
-    private void Start()
-    {
-        currentAmmo = player.GetComponent<Shooting>().currentAmmo;
-    }
-
     private void Update()
     {
-        if (currentAmmo != player.GetComponent<Shooting>().currentAmmo)
+        if (currentAmmo != player.currentAmmo)
         {
-            currentAmmo = player.GetComponent<Shooting>().currentAmmo;
+            currentAmmo = player.currentAmmo;
             UpdateAmmo();
         }
     }

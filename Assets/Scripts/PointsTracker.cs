@@ -4,5 +4,5 @@ using UnityEngine;
 
 public class PointsTracker : MonoBehaviour
 {
-    public static int points;
+    public static int points = 1000;
 }
