@@ -139,13 +139,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 649b2d73b2fce21419c420b428e743bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  path: {fileID: 0}
+  path: {fileID: 3721666131851612127}
   maxHealth: 3
   health: 3
   damage: 1
   isTouching: 0
   pointsGivenOnHit: 1
   pointsGivenOnKill: 3
+  assaultRifleDrop: {fileID: 5554010302887302207, guid: 734516db0c7d6ef409dacd6885d67d5f, type: 3}
+  shotgunDrop: {fileID: 4464876914902685994, guid: 425cda3af78b25742a5eeb46b4466aaa, type: 3}
+  minigunDrop: {fileID: 6650329975290048796, guid: 6cf4360378ba0574badb728dacb36039, type: 3}
+  dropChance: 0.05
+  ARDropChance: 0.45
+  shotgunDropChance: 0.45
+  minigunDropChance: 0.1
 --- !u!114 &7698045810665253273
 MonoBehaviour:
   m_ObjectHideFlags: 0

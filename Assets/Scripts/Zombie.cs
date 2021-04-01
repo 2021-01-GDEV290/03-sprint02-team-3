@@ -20,6 +20,15 @@ public class Zombie : MonoBehaviour
     public int pointsGivenOnHit = 1;
     public int pointsGivenOnKill = 3;
 
+    [Header("Weapon Drop")]
+    public GameObject assaultRifleDrop;
+    public GameObject shotgunDrop;
+    public GameObject minigunDrop;
+    public float dropChance; // Does a weapon drop if the zombie dies?
+    public float ARDropChance;
+    public float shotgunDropChance;
+    public float minigunDropChance;
+
     private void Start()
     {
         health = maxHealth;
@@ -65,9 +74,30 @@ public class Zombie : MonoBehaviour
         {
             Player.points += pointsGivenOnKill;
             ZombieSpawning.zombiesKilledThisRound++;
+            RandomDrop();
             Destroy(this.gameObject);
             return;
         }
         Player.points += pointsGivenOnHit;
+    }
+
+    public void RandomDrop()
+    {
+        if (Random.Range(0f, 1f) <= dropChance)
+        {
+            float thisRandom = Random.Range(0, ARDropChance + shotgunDropChance + minigunDropChance);
+            Transform spawn = gameObject.transform;
+            spawn.rotation = Quaternion.identity;
+            if (thisRandom <= ARDropChance)
+            {
+                Instantiate(assaultRifleDrop, spawn.position, spawn.rotation);
+            } else if(thisRandom > ARDropChance && thisRandom <= shotgunDropChance)
+            {
+                Instantiate(shotgunDrop, spawn.position, spawn.rotation);
+            } else
+            {
+                Instantiate(minigunDrop, spawn.position, spawn.rotation);
+            }
+        }
     }
 }
