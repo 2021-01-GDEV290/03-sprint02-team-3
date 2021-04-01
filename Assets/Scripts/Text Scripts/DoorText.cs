@@ -15,7 +15,7 @@ public class DoorText : MonoBehaviour
 
     private void Update()
     {
-        if (door == null)
+        if (!door.gameObject.activeSelf)
         {
             Destroy(this.gameObject);
         }

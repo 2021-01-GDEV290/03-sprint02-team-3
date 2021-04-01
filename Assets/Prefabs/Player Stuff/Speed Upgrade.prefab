@@ -126,3 +126,4 @@ MonoBehaviour:
   distance: 2
   canBeBought: 0
   bought: 0
+  newSpeed: 3.5

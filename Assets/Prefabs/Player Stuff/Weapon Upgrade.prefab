@@ -126,5 +126,9 @@ MonoBehaviour:
   secondUpgradePrice: 50
   thirdUpgradePrice: 100
   distance: 2
-  bullet: {fileID: 0}
+  firstUpgradeDamage: 2
+  thirdUpgradeDamage: 3
+  secondUpgradeAmmo: 20
+  thirdUpgradeAmmo: 30
   canBeBought: 0
+  currentBuyableUpgrade: 0

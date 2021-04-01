@@ -21,9 +21,9 @@ public class Door : MonoBehaviour
         if((player.transform.position - this.transform.position).magnitude < distance)
         {
             canBeOpened = true;
-            if (Input.GetKeyDown(KeyCode.E) && PointsTracker.points >= pointsNeeded)
+            if (Input.GetKeyDown(KeyCode.E) && Player.points >= pointsNeeded)
             {
-                PointsTracker.points -= pointsNeeded;
+                Player.points -= pointsNeeded;
                 Debug.Log("Door has been bought for " + pointsNeeded + " points.");
                 gameObject.SetActive(false);
             }

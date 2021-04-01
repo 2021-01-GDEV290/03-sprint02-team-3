@@ -125,3 +125,5 @@ MonoBehaviour:
   pointsNeeded: 50
   distance: 2
   canBeBought: 0
+  bought: 0
+  newHealth: 5

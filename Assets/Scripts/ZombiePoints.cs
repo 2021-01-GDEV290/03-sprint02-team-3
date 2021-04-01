@@ -8,6 +8,6 @@ public class ZombiePoints : MonoBehaviour
 
     public void AddPoints()
     {
-        PointsTracker.points += points;
+        Player.points += points;
     }
 }

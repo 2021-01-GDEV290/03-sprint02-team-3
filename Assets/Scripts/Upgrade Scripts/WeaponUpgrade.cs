@@ -9,15 +9,22 @@ public class WeaponUpgrade : MonoBehaviour
     public int thirdUpgradePrice;
     public int distance;
 
+    public int firstUpgradeDamage;
+    public int thirdUpgradeDamage;
+    public int secondUpgradeAmmo;
+    public int thirdUpgradeAmmo;
+
     public bool canBeBought;
     public int currentBuyableUpgrade;
     GameObject player;
-    GameObject bullet;
+    Player playerScript;
+    Bullet bullet;
 
     private void Start()
     {
         player = GameObject.Find("Player");
-        bullet = GameObject.Find("Bullet");
+        playerScript = player.GetComponent<Player>();
+        bullet = GameObject.Find("Bullet").GetComponent<Bullet>();
         canBeBought = false;
         currentBuyableUpgrade = 1;
     }
@@ -28,24 +35,30 @@ public class WeaponUpgrade : MonoBehaviour
         {
             canBeBought = true;
             if(Input.GetKeyDown(KeyCode.E)) {
-                if (currentBuyableUpgrade == 1 && PointsTracker.points >= firstUpgradePrice)
+                if (currentBuyableUpgrade == 1 && Player.points >= firstUpgradePrice)
                 {
-                    PointsTracker.points -= firstUpgradePrice;
+                    Player.points -= firstUpgradePrice;
                     currentBuyableUpgrade = 2;
-                    bullet.gameObject.GetComponent<DamageTracker>().damage = 2;
-                } else if(currentBuyableUpgrade == 2 && PointsTracker.points >= secondUpgradePrice)
+                    bullet.damage = firstUpgradeDamage;
+                } else if(currentBuyableUpgrade == 2 && Player.points >= secondUpgradePrice)
                 {
-                    PointsTracker.points -= secondUpgradePrice;
+                    Player.points -= secondUpgradePrice;
                     currentBuyableUpgrade = 3;
-                    player.GetComponent<Shooting>().maxAmmo = 20;
-                    player.GetComponent<Shooting>().currentAmmo = 20;
-                } else if(currentBuyableUpgrade == 3 && PointsTracker.points >= thirdUpgradePrice)
+                    playerScript.maxAmmo[0] = secondUpgradeAmmo;
+                    if(playerScript.state == PlayerState.normal)
+                    {
+                        playerScript.currentAmmo = secondUpgradeAmmo;
+                    }
+                } else if(currentBuyableUpgrade == 3 && Player.points >= thirdUpgradePrice)
                 {
-                    PointsTracker.points -= firstUpgradePrice;
+                    Player.points -= firstUpgradePrice;
                     currentBuyableUpgrade = 4;
-                    bullet.gameObject.GetComponent<DamageTracker>().damage = 3;
-                    player.GetComponent<Shooting>().maxAmmo = 30;
-                    player.GetComponent<Shooting>().currentAmmo = 30;
+                    bullet.damage = thirdUpgradeDamage;
+                    playerScript.maxAmmo[0] = thirdUpgradeAmmo;
+                    if (playerScript.state == PlayerState.normal)
+                    {
+                        playerScript.currentAmmo = thirdUpgradeAmmo;
+                    }
                 } else
                 {
                     return;

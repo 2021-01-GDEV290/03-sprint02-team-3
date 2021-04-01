@@ -8,12 +8,15 @@ public class HealthUpgrade : MonoBehaviour
     public int distance;
     public bool canBeBought;
     public bool bought;
+    public int newHealth;
 
     GameObject player;
+    Player playerScript;
 
     private void Start()
     {
         player = GameObject.Find("Player");
+        playerScript = player.GetComponent<Player>();
         canBeBought = false;
         bought = false;
     }
@@ -23,12 +26,12 @@ public class HealthUpgrade : MonoBehaviour
         if ((player.transform.position - this.transform.position).magnitude < distance)
         {
             canBeBought = true;
-            if (Input.GetKeyDown(KeyCode.E) && PointsTracker.points >= pointsNeeded && !bought)
+            if (Input.GetKeyDown(KeyCode.E) && Player.points >= pointsNeeded && !bought)
             {
-                PointsTracker.points -= pointsNeeded;
+                Player.points -= pointsNeeded;
                 bought = true;
-                player.gameObject.GetComponent<HealthTracker>().maxHealth = 5;
-                player.gameObject.GetComponent<HealthTracker>().health = 5;
+                playerScript.maxHealth = newHealth;
+                playerScript.health = newHealth;
             }
         }
         else
