@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4050904252376034024}
   - component: {fileID: 2758743808578104058}
   - component: {fileID: 2681476923877184042}
+  - component: {fileID: 735364343004189370}
   m_Layer: 0
   m_Name: Assault Rifle
   m_TagString: Untagged
@@ -109,3 +110,16 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.41205245, y: 1.6034893}
   m_EdgeRadius: 0
+--- !u!114 &735364343004189370
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5554010302887302207}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8d19ee981309854087278dcd60bd8a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weaponType: Assault Rifle

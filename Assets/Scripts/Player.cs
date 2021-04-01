@@ -2,6 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum PlayerState
+{
+    normal,
+    assaultRifle,
+    shotgun,
+    minigun
+}
+
 public class Player : MonoBehaviour
 {
     [Header("Player Controller")]
@@ -20,15 +28,16 @@ public class Player : MonoBehaviour
 
     bool canRegen;
 
-    [Header("Shooting")]
-    public Transform firePoint;
+    [Header("Shooting")] // For all arrays, index 0 is normal, 1 is AR, 2 is shotgun, and 3 is minigun
+    public PlayerState state = PlayerState.normal;
+    public Transform[] firePoint;
     public GameObject bulletPrefab;
     public Animator animator;
-    public float bulletForce = 20f;
-    public int maxAmmo = 15;
+    public float[] bulletForce;
+    public int[] maxAmmo;
     public int currentAmmo;
-    public float reloadDelay;
-    public float shootingDelay;
+    public float[] reloadDelay;
+    public float[] fireRate;
 
     bool canShoot = true;
 
@@ -45,7 +54,7 @@ public class Player : MonoBehaviour
         yInput = Input.GetAxisRaw("Vertical");
 
         // Shooting
-        currentAmmo = maxAmmo;
+        currentAmmo = maxAmmo[0];
 
         // Health
         health = maxHealth;
@@ -61,15 +70,56 @@ public class Player : MonoBehaviour
         mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
 
         // Shooting
-        if (Input.GetButtonDown("Fire1") && canShoot && currentAmmo > 0 && !(PauseMenu.GameIsPaused))
+        switch (state)
         {
-            animator.SetBool("Shoot", true);
-            Shoot();
-        }
-        if (Input.GetKeyDown(KeyCode.R))
-        {
-            canShoot = false;
-            Invoke("Reload", reloadDelay);
+            case PlayerState.normal:
+                if (Input.GetButtonDown("Fire1") && canShoot && currentAmmo > 0 && !(PauseMenu.GameIsPaused))
+                {
+                    animator.SetBool("Shoot", true);
+                    Shoot(0);
+                }
+                if (Input.GetKeyDown(KeyCode.R))
+                {
+                    canShoot = false;
+                    Invoke("Reload", fireRate[0]);
+                }
+                break;
+            case PlayerState.assaultRifle:
+                if(Input.GetButton("Fire1") && canShoot && currentAmmo > 0 && !(PauseMenu.GameIsPaused))
+                {
+                    animator.SetBool("Shoot", true);
+                    Shoot(1);
+                }
+                if (Input.GetKeyDown(KeyCode.R))
+                {
+                    canShoot = false;
+                    Invoke("Reload", fireRate[1]);
+                }
+                break;
+            case PlayerState.shotgun:
+                if (Input.GetButtonDown("Fire1") && canShoot && currentAmmo > 0 && !(PauseMenu.GameIsPaused))
+                {
+                    animator.SetBool("Shoot", true);
+                    Shoot(2);
+                }
+                if (Input.GetKeyDown(KeyCode.R))
+                {
+                    canShoot = false;
+                    Invoke("Reload", fireRate[2]);
+                }
+                break;
+            case PlayerState.minigun:
+                if (Input.GetButton("Fire1") && canShoot && currentAmmo > 0 && !(PauseMenu.GameIsPaused))
+                {
+                    animator.SetBool("Shoot", true);
+                    Shoot(3);
+                }
+                if (Input.GetKeyDown(KeyCode.R))
+                {
+                    canShoot = false;
+                    Invoke("Reload", fireRate[3]);
+                }
+                break;
         }
 
         // Health
@@ -103,14 +153,14 @@ public class Player : MonoBehaviour
         }
     }
 
-    void Shoot()
+    void Shoot(int index)
     {
-        GameObject bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
+        GameObject bullet = Instantiate(bulletPrefab, firePoint[index].position, firePoint[index].rotation);
         Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
-        rb.AddForce(firePoint.up * bulletForce, ForceMode2D.Impulse);
+        rb.AddForce(firePoint[index].up * bulletForce[index], ForceMode2D.Impulse);
         currentAmmo--;
         canShoot = false;
-        Invoke("TimeBeforeNextShoot", shootingDelay);
+        Invoke("TimeBeforeNextShoot", fireRate[index]);
     }
 
     void TimeBeforeNextShoot()
@@ -121,7 +171,21 @@ public class Player : MonoBehaviour
 
     void Reload()
     {
-        currentAmmo = maxAmmo;
+        switch (state)
+        {
+            case PlayerState.normal:
+                currentAmmo = maxAmmo[0];
+                break;
+            case PlayerState.assaultRifle:
+                currentAmmo = maxAmmo[1];
+                break;
+            case PlayerState.shotgun:
+                currentAmmo = maxAmmo[2];
+                break;
+            case PlayerState.minigun:
+                currentAmmo = maxAmmo[3];
+                break;
+        }
         canShoot = true;
     }
 
