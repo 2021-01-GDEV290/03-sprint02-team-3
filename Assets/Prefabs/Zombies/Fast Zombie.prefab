@@ -18,7 +18,7 @@ GameObject:
   - component: {fileID: 3015671018545878377}
   - component: {fileID: 4968840365944648124}
   - component: {fileID: -5791218247402362061}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Fast Zombie
   m_TagString: Zombie
   m_Icon: {fileID: 0}
@@ -143,10 +143,16 @@ MonoBehaviour:
   maxHealth: 3
   health: 3
   damage: 1
-  tags:
-  - Player
+  isTouching: 0
   pointsGivenOnHit: 1
   pointsGivenOnKill: 3
+  assaultRifleDrop: {fileID: 0}
+  shotgunDrop: {fileID: 0}
+  minigunDrop: {fileID: 0}
+  dropChance: 0
+  ARDropChance: 0
+  shotgunDropChance: 0
+  minigunDropChance: 0
 --- !u!114 &7698045810665253273
 MonoBehaviour:
   m_ObjectHideFlags: 0
