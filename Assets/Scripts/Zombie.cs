@@ -10,6 +10,7 @@ public class Zombie : MonoBehaviour
     [Header("Health Tracking")]
     public int maxHealth = 3;
     public int health = 3;
+    bool alreadyKilled = false;
 
     [Header("Damage Tracking")]
     public int damage = 1;
@@ -70,12 +71,13 @@ public class Zombie : MonoBehaviour
     public void Damage(int damage)
     {
         health = health - damage;
-        if (health <= 0)
+        if (health <= 0 && !alreadyKilled)
         {
             Player.points += pointsGivenOnKill;
             ZombieSpawning.zombiesKilledThisRound++;
+            alreadyKilled = true;
             RandomDrop();
-            Destroy(this.gameObject);
+            Destroy(gameObject);
             return;
         }
         Player.points += pointsGivenOnHit;

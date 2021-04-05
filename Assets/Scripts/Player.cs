@@ -38,6 +38,7 @@ public class Player : MonoBehaviour
     public int currentAmmo;
     public float[] reloadDelay;
     public float[] fireRate;
+    public int numPelletsPerShot; // For shotgun only
 
     bool canShoot = true;
 
@@ -155,9 +156,27 @@ public class Player : MonoBehaviour
 
     void Shoot(int index)
     {
-        GameObject bullet = Instantiate(bulletPrefab, firePoint[index].position, firePoint[index].rotation);
-        Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
-        rb.AddForce(firePoint[index].up * bulletForce[index], ForceMode2D.Impulse);
+        if (state == PlayerState.shotgun)
+        {
+            for (int i = 0; i < numPelletsPerShot; i++)
+            {
+                GameObject bullet = Instantiate(bulletPrefab, firePoint[index].position, 
+                    firePoint[index].rotation);
+                Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
+                float spreadAngle = Random.Range(-30, 30) + 30;
+                var x = firePoint[index].position.x - transform.position.x;
+                var y = firePoint[index].position.y - transform.position.y;
+                float rotateAngle = spreadAngle + (Mathf.Atan2(y, x) * Mathf.Rad2Deg);
+                var MovementDirection = new Vector2(Mathf.Cos(rotateAngle * Mathf.Deg2Rad),
+                    Mathf.Sin(rotateAngle * Mathf.Deg2Rad)).normalized;
+                rb.AddForce(((Vector2) firePoint[index].up + MovementDirection) * bulletForce[index], ForceMode2D.Impulse);
+            }
+        } else
+        {
+            GameObject bullet = Instantiate(bulletPrefab, firePoint[index].position, firePoint[index].rotation);
+            Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
+            rb.AddForce(firePoint[index].up * bulletForce[index], ForceMode2D.Impulse);
+        }
         currentAmmo--;
         canShoot = false;
         Invoke("TimeBeforeNextShoot", fireRate[index]);

@@ -18,12 +18,12 @@ TagManager:
   - 
   - 
   - Obstacles
-  - Zombies
   - Weapons
-  - 
-  - 
-  - 
-  - 
+  - Normal Zombie
+  - Fast Zombie
+  - Boss Zombie
+  - Ranged Zombie
+  - Bullet
   - 
   - 
   - 

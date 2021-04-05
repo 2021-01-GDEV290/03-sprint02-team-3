@@ -13,8 +13,8 @@ public class RoundEndText : MonoBehaviour
 
     private void Start()
     {
-        text = this.GetComponent<Text>().text;
-        this.GetComponent<Text>().text = "";
+        text = GetComponent<Text>().text;
+        GetComponent<Text>().text = "";
     }
 
     void Update()
