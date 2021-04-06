@@ -41,6 +41,7 @@ public class Player : MonoBehaviour
     public float[] fireRate;
     public int numPelletsPerShotgunShot; // Number of pellets shot when the player is using the shotgun
     public int shotgunSpread; // How far the shotgun pellets spread when shot
+    public int minigunSpread; // Shotgun spread, but for the minigun
 
     bool canShoot = true;
 
@@ -178,7 +179,7 @@ public class Player : MonoBehaviour
         {
             for (int i = 0; i < numPelletsPerShotgunShot; i++)
             {
-                GameObject bullet = Instantiate(bulletPrefab, firePoint[index].position, 
+                GameObject bullet = Instantiate(bulletPrefab, firePoint[index].position,
                     firePoint[index].rotation);
                 Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
                 float spreadAngle = Random.Range(-shotgunSpread, shotgunSpread) + shotgunSpread;
@@ -187,8 +188,20 @@ public class Player : MonoBehaviour
                 float rotateAngle = spreadAngle + (Mathf.Atan2(y, x) * Mathf.Rad2Deg);
                 var MovementDirection = new Vector2(Mathf.Cos(rotateAngle * Mathf.Deg2Rad),
                     Mathf.Sin(rotateAngle * Mathf.Deg2Rad)).normalized;
-                rb.AddForce(((Vector2) firePoint[index].up + MovementDirection) * bulletForce[index], ForceMode2D.Impulse);
+                rb.AddForce(((Vector2)firePoint[index].up + MovementDirection) * bulletForce[index], ForceMode2D.Impulse);
             }
+        } else if (state == PlayerState.minigun)
+        {
+            GameObject bullet = Instantiate(bulletPrefab, firePoint[index].position,
+                    firePoint[index].rotation);
+            Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
+            float spreadAngle = Random.Range(-minigunSpread, minigunSpread) + minigunSpread;
+            var x = firePoint[index].position.x - transform.position.x;
+            var y = firePoint[index].position.y - transform.position.y;
+            float rotateAngle = spreadAngle + (Mathf.Atan2(y, x) * Mathf.Rad2Deg);
+            var MovementDirection = new Vector2(Mathf.Cos(rotateAngle * Mathf.Deg2Rad),
+                Mathf.Sin(rotateAngle * Mathf.Deg2Rad)).normalized;
+            rb.AddForce(((Vector2)firePoint[index].up + MovementDirection) * bulletForce[index], ForceMode2D.Impulse);
         } else
         {
             GameObject bullet = Instantiate(bulletPrefab, firePoint[index].position, firePoint[index].rotation);
