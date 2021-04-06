@@ -85,7 +85,7 @@ public class Player : MonoBehaviour
                 if (Input.GetKeyDown(KeyCode.R))
                 {
                     canShoot = false;
-                    Invoke("Reload", fireRate[0]);
+                    Invoke("Reload", reloadDelay[0]);
                 }
                 break;
             case PlayerState.assaultRifle:
@@ -104,7 +104,7 @@ public class Player : MonoBehaviour
                 if (Input.GetKeyDown(KeyCode.R))
                 {
                     canShoot = false;
-                    Invoke("Reload", fireRate[1]);
+                    Invoke("Reload", reloadDelay[1]);
                 }
                 break;
             case PlayerState.shotgun:
@@ -123,7 +123,7 @@ public class Player : MonoBehaviour
                 if (Input.GetKeyDown(KeyCode.R))
                 {
                     canShoot = false;
-                    Invoke("Reload", fireRate[2]);
+                    Invoke("Reload", reloadDelay[2]);
                 }
                 break;
             case PlayerState.minigun:

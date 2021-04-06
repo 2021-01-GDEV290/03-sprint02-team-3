@@ -14,9 +14,14 @@ public class AreaEnterDetection : MonoBehaviour
     }
     private void Update()
     {
+        if(correspondingDoors.Length == 0)
+        {
+            isOpen = true;
+            return;
+        }
         for(int i = 0; i < correspondingDoors.Length; i++)
         {
-            if(correspondingDoors[i] == null)
+            if(!correspondingDoors[i].gameObject.activeSelf)
             {
                 isOpen = true;
             }
