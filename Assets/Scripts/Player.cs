@@ -36,9 +36,11 @@ public class Player : MonoBehaviour
     public float[] bulletForce;
     public int[] maxAmmo;
     public int currentAmmo;
+    public int remainingAmmo; // For weapon drops
     public float[] reloadDelay;
     public float[] fireRate;
-    public int numPelletsPerShot; // For shotgun only
+    public int numPelletsPerShotgunShot; // Number of pellets shot when the player is using the shotgun
+    public int shotgunSpread; // How far the shotgun pellets spread when shot
 
     bool canShoot = true;
 
@@ -86,6 +88,13 @@ public class Player : MonoBehaviour
                 }
                 break;
             case PlayerState.assaultRifle:
+                if (remainingAmmo == 0 && currentAmmo == 0)
+                {
+                    state = PlayerState.normal;
+                    animator.SetInteger("Current State", 0);
+                    currentAmmo = maxAmmo[0];
+                    break;
+                }
                 if(Input.GetButton("Fire1") && canShoot && currentAmmo > 0 && !(PauseMenu.GameIsPaused))
                 {
                     animator.SetBool("Shoot", true);
@@ -98,6 +107,13 @@ public class Player : MonoBehaviour
                 }
                 break;
             case PlayerState.shotgun:
+                if (remainingAmmo == 0 && currentAmmo == 0)
+                {
+                    state = PlayerState.normal;
+                    animator.SetInteger("Current State", 0);
+                    currentAmmo = maxAmmo[0];
+                    break;
+                }
                 if (Input.GetButtonDown("Fire1") && canShoot && currentAmmo > 0 && !(PauseMenu.GameIsPaused))
                 {
                     animator.SetBool("Shoot", true);
@@ -110,15 +126,17 @@ public class Player : MonoBehaviour
                 }
                 break;
             case PlayerState.minigun:
+                if (currentAmmo == 0)
+                {
+                    state = PlayerState.normal;
+                    animator.SetInteger("Current State", 0);
+                    currentAmmo = maxAmmo[0];
+                    break;
+                }
                 if (Input.GetButton("Fire1") && canShoot && currentAmmo > 0 && !(PauseMenu.GameIsPaused))
                 {
                     animator.SetBool("Shoot", true);
                     Shoot(3);
-                }
-                if (Input.GetKeyDown(KeyCode.R))
-                {
-                    canShoot = false;
-                    Invoke("Reload", fireRate[3]);
                 }
                 break;
         }
@@ -158,12 +176,12 @@ public class Player : MonoBehaviour
     {
         if (state == PlayerState.shotgun)
         {
-            for (int i = 0; i < numPelletsPerShot; i++)
+            for (int i = 0; i < numPelletsPerShotgunShot; i++)
             {
                 GameObject bullet = Instantiate(bulletPrefab, firePoint[index].position, 
                     firePoint[index].rotation);
                 Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
-                float spreadAngle = Random.Range(-30, 30) + 30;
+                float spreadAngle = Random.Range(-shotgunSpread, shotgunSpread) + shotgunSpread;
                 var x = firePoint[index].position.x - transform.position.x;
                 var y = firePoint[index].position.y - transform.position.y;
                 float rotateAngle = spreadAngle + (Mathf.Atan2(y, x) * Mathf.Rad2Deg);
@@ -190,19 +208,36 @@ public class Player : MonoBehaviour
 
     void Reload()
     {
+        int ammoNeeded;
         switch (state)
         {
             case PlayerState.normal:
                 currentAmmo = maxAmmo[0];
                 break;
             case PlayerState.assaultRifle:
-                currentAmmo = maxAmmo[1];
+                ammoNeeded = maxAmmo[1] - currentAmmo;
+                if(remainingAmmo >= ammoNeeded)
+                {
+                    currentAmmo += ammoNeeded;
+                    remainingAmmo -= ammoNeeded;
+                } else
+                {
+                    currentAmmo += remainingAmmo;
+                    remainingAmmo = 0;
+                }
                 break;
             case PlayerState.shotgun:
-                currentAmmo = maxAmmo[2];
-                break;
-            case PlayerState.minigun:
-                currentAmmo = maxAmmo[3];
+                ammoNeeded = maxAmmo[2] - currentAmmo;
+                if (remainingAmmo >= ammoNeeded)
+                {
+                    currentAmmo += ammoNeeded;
+                    remainingAmmo -= ammoNeeded;
+                }
+                else
+                {
+                    currentAmmo += remainingAmmo;
+                    remainingAmmo = 0;
+                }
                 break;
         }
         canShoot = true;

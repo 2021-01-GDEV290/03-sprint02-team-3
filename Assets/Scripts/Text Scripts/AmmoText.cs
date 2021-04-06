@@ -9,20 +9,23 @@ public class AmmoText : MonoBehaviour
     public Text txt;
     public Player player;
 
-    int currentAmmo;
-
     private void Update()
     {
-        if (currentAmmo != player.currentAmmo)
-        {
-            currentAmmo = player.currentAmmo;
-            UpdateAmmo();
-        }
-    }
-
-    void UpdateAmmo()
-    {
         txt.GetComponent<Text>();
-        txt.text = "Ammo: " + currentAmmo;
+        switch (player.state)
+        {
+            case PlayerState.normal:
+                txt.text = "Ammo: " + player.currentAmmo + " / ∞";
+                break;
+            case PlayerState.assaultRifle:
+                txt.text = "Ammo: " + player.currentAmmo + " / " + player.remainingAmmo;
+                break;
+            case PlayerState.shotgun:
+                txt.text = "Ammo: " + player.currentAmmo + " / " + player.remainingAmmo;
+                break;
+            case PlayerState.minigun:
+                txt.text = "Ammo: " + player.currentAmmo + " / 0";
+                break;
+        }
     }
 }

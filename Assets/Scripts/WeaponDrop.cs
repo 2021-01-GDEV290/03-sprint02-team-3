@@ -17,11 +17,13 @@ public class WeaponDrop : MonoBehaviour
                     player.state = PlayerState.assaultRifle;
                     player.animator.SetInteger("Current State", 1);
                     player.currentAmmo = player.maxAmmo[1];
+                    player.remainingAmmo = player.maxAmmo[1] * 2;
                     break;
                 case "Shotgun":
                     player.state = PlayerState.shotgun;
                     player.animator.SetInteger("Current State", 2);
                     player.currentAmmo = player.maxAmmo[2];
+                    player.remainingAmmo = player.maxAmmo[2] * 3;
                     break;
                 case "Minigun":
                     player.state = PlayerState.minigun;

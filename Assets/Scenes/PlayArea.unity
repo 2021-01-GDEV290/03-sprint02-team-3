@@ -7295,6 +7295,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 15747576}
     - target: {fileID: -6470361127330926277, guid: 961e23abeaacdde4eb5dd493c6634c73, type: 3}
+      propertyPath: shotgunSpread
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: -6470361127330926277, guid: 961e23abeaacdde4eb5dd493c6634c73, type: 3}
       propertyPath: numPelletsPerShot
       value: 3
       objectReference: {fileID: 0}
@@ -7329,6 +7333,10 @@ PrefabInstance:
     - target: {fileID: -6470361127330926277, guid: 961e23abeaacdde4eb5dd493c6634c73, type: 3}
       propertyPath: maxAmmo.Array.data[3]
       value: 999
+      objectReference: {fileID: 0}
+    - target: {fileID: -6470361127330926277, guid: 961e23abeaacdde4eb5dd493c6634c73, type: 3}
+      propertyPath: weaponTime.Array.size
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: -6470361127330926277, guid: 961e23abeaacdde4eb5dd493c6634c73, type: 3}
       propertyPath: bulletForce.Array.size
@@ -7370,6 +7378,22 @@ PrefabInstance:
       propertyPath: firePoint.Array.data[3]
       value: 
       objectReference: {fileID: 1624937495}
+    - target: {fileID: -6470361127330926277, guid: 961e23abeaacdde4eb5dd493c6634c73, type: 3}
+      propertyPath: numPelletsPerShotgunShot
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: -6470361127330926277, guid: 961e23abeaacdde4eb5dd493c6634c73, type: 3}
+      propertyPath: weaponTime.Array.data[0]
+      value: 45
+      objectReference: {fileID: 0}
+    - target: {fileID: -6470361127330926277, guid: 961e23abeaacdde4eb5dd493c6634c73, type: 3}
+      propertyPath: weaponTime.Array.data[1]
+      value: 45
+      objectReference: {fileID: 0}
+    - target: {fileID: -6470361127330926277, guid: 961e23abeaacdde4eb5dd493c6634c73, type: 3}
+      propertyPath: weaponTime.Array.data[2]
+      value: 30
+      objectReference: {fileID: 0}
     - target: {fileID: -6470361127330926277, guid: 961e23abeaacdde4eb5dd493c6634c73, type: 3}
       propertyPath: bulletForce.Array.data[0]
       value: 20
