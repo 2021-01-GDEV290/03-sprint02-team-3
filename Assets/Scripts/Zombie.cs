@@ -15,7 +15,7 @@ public class Zombie : MonoBehaviour
     [Header("Damage Tracking")]
     public int damage = 1;
     public bool isTouching = false;
-    Player player;
+    public Player player;
 
     [Header("Point Tracking")]
     public int pointsGivenOnHit = 1;
@@ -38,7 +38,7 @@ public class Zombie : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (gameObject.tag == "Bullet")
+        if (collision.gameObject.tag == "Bullet")
         {
             Destroy(gameObject);
         }
