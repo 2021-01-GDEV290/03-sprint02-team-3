@@ -20,6 +20,10 @@ public class RangedZombie : Zombie
 
     private void OnCollisionExit2D(Collision2D collision)
     {
+        if (!(collision.gameObject.tag == "Player"))
+        {
+            return;
+        }
         if (collision.gameObject.tag == "Player")
         {
             isTouching = false;
@@ -35,9 +39,16 @@ public class RangedZombie : Zombie
     {
         if(!isTouching)
         {
+            animator.SetBool("Attack", true);
+            Invoke("ResetRangedAnimation", 0.3f);
             GameObject proj = Instantiate(projectile, firePoint.position, firePoint.rotation);
             Rigidbody2D rb = proj.GetComponent<Rigidbody2D>();
             rb.AddForce(firePoint.up * projectileForce, ForceMode2D.Impulse);
         }
+    }
+
+    void ResetRangedAnimation()
+    {
+        animator.SetBool("Attack", false);
     }
 }

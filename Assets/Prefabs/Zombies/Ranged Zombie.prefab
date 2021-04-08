@@ -47,7 +47,6 @@ GameObject:
   - component: {fileID: 4988461106913461967}
   - component: {fileID: 4988461106913461966}
   - component: {fileID: 4988461106913461961}
-  - component: {fileID: 4988461106913461960}
   m_Layer: 13
   m_Name: Ranged Zombie
   m_TagString: Zombie
@@ -185,7 +184,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f74ef1a5e985b4e41a2b18f1e2633761, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  path: {fileID: 4988461106913461967}
+  animator: {fileID: 4988461106913461961}
   maxHealth: 3
   health: 3
   damage: 1
@@ -291,9 +290,9 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4988461106913461963}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 11e2aac93b7a5974a85be1ae8aaa2f7e, type: 2}
+  m_Controller: {fileID: 9100000, guid: 0c9e5513862c8804aa24bfe7ac8a0c78, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -302,16 +301,3 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &4988461106913461960
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4988461106913461963}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c7da89fb0529961409d7ab7c4ca14cac, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  animator: {fileID: 4988461106913461961}

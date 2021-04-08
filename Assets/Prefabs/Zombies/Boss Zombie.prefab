@@ -17,7 +17,6 @@ GameObject:
   - component: {fileID: 3721666131851612127}
   - component: {fileID: 3015671018545878377}
   - component: {fileID: 4968840365944648124}
-  - component: {fileID: -5791218247402362061}
   m_Layer: 12
   m_Name: Boss Zombie
   m_TagString: Zombie
@@ -154,11 +153,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 649b2d73b2fce21419c420b428e743bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  path: {fileID: 0}
+  animator: {fileID: 4968840365944648124}
   maxHealth: 25
   health: 25
   damage: 3
   isTouching: 0
+  player: {fileID: 0}
   pointsGivenOnHit: 3
   pointsGivenOnKill: 20
   assaultRifleDrop: {fileID: 5554010302887302207, guid: 734516db0c7d6ef409dacd6885d67d5f, type: 3}
@@ -209,7 +209,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 2
-  radius: 0.5
+  radius: 0.8
   height: 2
   repathRate: 0.5
   canSearch: 1
@@ -254,9 +254,9 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7698045810665253346}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 11e2aac93b7a5974a85be1ae8aaa2f7e, type: 2}
+  m_Controller: {fileID: 9100000, guid: 44cf4eeaf86598e47913fd92232d8440, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -265,16 +265,3 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &-5791218247402362061
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7698045810665253346}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c7da89fb0529961409d7ab7c4ca14cac, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  animator: {fileID: 4968840365944648124}

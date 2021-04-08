@@ -5,7 +5,7 @@ using Pathfinding;
 
 public class Zombie : MonoBehaviour
 {
-    public AIPath path;
+    public Animator animator;
 
     [Header("Health Tracking")]
     public int maxHealth = 3;
@@ -40,7 +40,9 @@ public class Zombie : MonoBehaviour
     {
         if (collision.gameObject.tag == "Bullet")
         {
-            Destroy(gameObject);
+            animator.SetBool("Hit", true);
+            Invoke("ResetAnimation", 0.2f);
+            Destroy(collision.gameObject);
         }
         if (collision.gameObject.tag == "Player")
         {
@@ -101,5 +103,10 @@ public class Zombie : MonoBehaviour
                 Instantiate(minigunDrop, spawn.position, spawn.rotation);
             }
         }
+    }
+
+    void ResetAnimation()
+    {
+        animator.SetBool("Hit", false);
     }
 }
