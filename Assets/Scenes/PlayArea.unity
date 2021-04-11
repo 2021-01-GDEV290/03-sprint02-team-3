@@ -2903,7 +2903,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5ca6af036f69286499f0175ec32e66ac, type: 3}
   m_Name: 
@@ -2923,9 +2923,9 @@ MonoBehaviour:
   - {fileID: 7698045810665253346, guid: 16bb25c0a2888aa4ba8f70808221420c, type: 3}
   - {fileID: 7698045810665253346, guid: 08d1f680af1a3b84fa0e7d7c114f16ce, type: 3}
   - {fileID: 4988461106913461963, guid: 288c28c63137e4649b5ef5acaf786a5b, type: 3}
-  normalZombieSpawnChance: 0.75
-  fastZombieSpawnChance: 0.15
-  rangedZombieSpawnChance: 0.1
+  normalZombieSpawnChance: 0.85
+  fastZombieSpawnChance: 0.1
+  rangedZombieSpawnChance: 0.05
   nextRoundDelay: 10
   delayBetweenSpawns: 1.5
 --- !u!1 &547411059
@@ -4073,6 +4073,7 @@ GameObject:
   - component: {fileID: 772535890}
   - component: {fileID: 772535889}
   - component: {fileID: 772535888}
+  - component: {fileID: 772535891}
   m_Layer: 0
   m_Name: Toilet (3)
   m_TagString: Untagged
@@ -4178,6 +4179,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &772535891
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 772535887}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ab02c11c0039af240b1bd8df45eaec40, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  distance: 1
 --- !u!1001 &795244765
 PrefabInstance:
   m_ObjectHideFlags: 0

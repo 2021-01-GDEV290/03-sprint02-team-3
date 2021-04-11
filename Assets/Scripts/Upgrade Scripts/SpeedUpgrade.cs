@@ -5,7 +5,7 @@ using UnityEngine;
 public class SpeedUpgrade : MonoBehaviour
 {
     public int pointsNeeded;
-    public int distance;
+    public float distance;
     public bool canBeBought;
     public bool bought;
     public float newSpeed;

@@ -6,7 +6,7 @@ public class ZombieSpawning : MonoBehaviour
 {
     [Header("For Show Only")]
     public static int currentRound = 1; // The current round the player is on
-    public static int numberOfZombiesRoundOne = 10; // The number of zombies that can spawn in the first round
+    public static int numberOfZombiesRoundOne = 5; // The number of zombies that can spawn in the first round
     //                                         (changing this changes amount of zombies per round)
     
     public static int maxZombieSpawnsThisRound; // The number of zombies that can spawn on this round

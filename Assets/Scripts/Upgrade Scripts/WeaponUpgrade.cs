@@ -7,7 +7,7 @@ public class WeaponUpgrade : MonoBehaviour
     public int firstUpgradePrice;
     public int secondUpgradePrice;
     public int thirdUpgradePrice;
-    public int distance;
+    public float distance;
 
     public int firstUpgradeDamage;
     public int thirdUpgradeDamage;
