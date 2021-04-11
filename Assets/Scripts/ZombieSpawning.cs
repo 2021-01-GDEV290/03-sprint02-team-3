@@ -6,7 +6,7 @@ public class ZombieSpawning : MonoBehaviour
 {
     [Header("For Show Only")]
     public static int currentRound = 1; // The current round the player is on
-    public static int numberOfZombiesRoundOne = 5; // The number of zombies that can spawn in the first round
+    public static int numberOfZombiesRoundOne = 10; // The number of zombies that can spawn in the first round
     //                                         (changing this changes amount of zombies per round)
     
     public static int maxZombieSpawnsThisRound; // The number of zombies that can spawn on this round
@@ -17,7 +17,12 @@ public class ZombieSpawning : MonoBehaviour
     public int zombieKillsTracked; // So I can track the above variable to make sure it is working as intended
 
     public Transform[] spawnPoints; // An array of all spawn points
-    public GameObject zombiePrefab; // The zombie prefab
+    public GameObject[] zombiePrefabs; // The zombie prefab
+    public float normalZombieSpawnChance;
+    float tempNormalZombieSpawnChance;
+    public float fastZombieSpawnChance;
+    float tempFastZombieSpawnChance;
+    public float rangedZombieSpawnChance;
     public float nextRoundDelay; // Determines how long to wait before starting the next round
     public float delayBetweenSpawns; // Determines how long to wait before another zombie is spawned
 
@@ -29,6 +34,8 @@ public class ZombieSpawning : MonoBehaviour
     {
         canSpawn = true;
         maxZombieSpawnsThisRound = numberOfZombiesRoundOne;
+        tempNormalZombieSpawnChance = normalZombieSpawnChance;
+        tempFastZombieSpawnChance = tempNormalZombieSpawnChance + fastZombieSpawnChance;
     }
     private void Update()
     {
@@ -64,8 +71,25 @@ public class ZombieSpawning : MonoBehaviour
 
     void SpawnZombie()
     {
+
         Transform randomSpawn = availableSpawns[Random.Range(0, availableSpawns.Count)];
-        Instantiate(zombiePrefab, randomSpawn.position, randomSpawn.rotation);
+        float thisRandom = Random.Range(0, normalZombieSpawnChance + fastZombieSpawnChance
+            + rangedZombieSpawnChance);
+        if (thisRandom <= tempNormalZombieSpawnChance)
+        {
+            Instantiate(zombiePrefabs[0], randomSpawn.position + new Vector3(0, 0, -10),
+                randomSpawn.rotation);
+        }
+        else if (thisRandom <= tempFastZombieSpawnChance)
+        {
+            Instantiate(zombiePrefabs[1], randomSpawn.position + new Vector3(0, 0, -10),
+                randomSpawn.rotation);
+        } else
+        {
+            Instantiate(zombiePrefabs[2], randomSpawn.position + new Vector3(0, 0, -10),
+                randomSpawn.rotation);
+        }
+        Debug.Log("Spawned zombie with the number " + thisRandom);
         zombiesSpawnedThisRound++;
         canSpawn = true;
     }

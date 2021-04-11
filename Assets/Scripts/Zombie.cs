@@ -27,13 +27,17 @@ public class Zombie : MonoBehaviour
     public GameObject minigunDrop;
     public float dropChance; // Does a weapon drop if the zombie dies?
     public float ARDropChance;
+    float tempARDropChance;
     public float shotgunDropChance;
+    float tempShotgunDropChance;
     public float minigunDropChance;
 
     private void Start()
     {
         health = maxHealth;
         player = GameObject.Find("Player").GetComponent<Player>();
+        tempARDropChance = ARDropChance;
+        tempShotgunDropChance = tempARDropChance + shotgunDropChance;
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -92,10 +96,10 @@ public class Zombie : MonoBehaviour
             float thisRandom = Random.Range(0, ARDropChance + shotgunDropChance + minigunDropChance);
             Transform spawn = gameObject.transform;
             spawn.rotation = Quaternion.identity;
-            if (thisRandom <= ARDropChance)
+            if (thisRandom <= tempARDropChance)
             {
                 Instantiate(assaultRifleDrop, spawn.position, spawn.rotation);
-            } else if(thisRandom > ARDropChance && thisRandom <= shotgunDropChance)
+            } else if(thisRandom <= tempShotgunDropChance)
             {
                 Instantiate(shotgunDrop, spawn.position, spawn.rotation);
             } else

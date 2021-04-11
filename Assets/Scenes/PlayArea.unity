@@ -2558,7 +2558,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5ca6af036f69286499f0175ec32e66ac, type: 3}
   m_Name: 
@@ -2574,7 +2574,13 @@ MonoBehaviour:
   - {fileID: 1354968645}
   - {fileID: 1632756745}
   - {fileID: 2113258734}
-  zombiePrefab: {fileID: 7698045810665253346, guid: 16bb25c0a2888aa4ba8f70808221420c, type: 3}
+  zombiePrefabs:
+  - {fileID: 7698045810665253346, guid: 16bb25c0a2888aa4ba8f70808221420c, type: 3}
+  - {fileID: 7698045810665253346, guid: 08d1f680af1a3b84fa0e7d7c114f16ce, type: 3}
+  - {fileID: 4988461106913461963, guid: 288c28c63137e4649b5ef5acaf786a5b, type: 3}
+  normalZombieSpawnChance: 0.75
+  fastZombieSpawnChance: 0.15
+  rangedZombieSpawnChance: 0.1
   nextRoundDelay: 10
   delayBetweenSpawns: 1.5
 --- !u!1 &547411059
