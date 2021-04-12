@@ -2043,12 +2043,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 393153079}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -16.58, y: 24.66, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -15.266266, y: 24.641203, z: -44.498955}
   m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_Father: {fileID: 1611693114}
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &403492463
 GameObject:
@@ -2915,6 +2915,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   increaser: 1
+  firstBossRoundNumber: 7
+  nextBossRoundNumber: 5
+  zombiesSpawnedOnBossRoundPlusBoss: 6
   zombieKillsTracked: 0
   spawnPoints:
   - {fileID: 447872769}
@@ -2930,11 +2933,12 @@ MonoBehaviour:
   - {fileID: 7698045810665253346, guid: 16bb25c0a2888aa4ba8f70808221420c, type: 3}
   - {fileID: 7698045810665253346, guid: 08d1f680af1a3b84fa0e7d7c114f16ce, type: 3}
   - {fileID: 4988461106913461963, guid: 288c28c63137e4649b5ef5acaf786a5b, type: 3}
+  - {fileID: 7698045810665253346, guid: 79fb7ad5d9fc7b24e8fab2f8da9d6b36, type: 3}
   normalZombieSpawnChance: 0.85
   fastZombieSpawnChance: 0.1
   rangedZombieSpawnChance: 0.05
   nextRoundDelay: 10
-  delayBetweenSpawns: 1.5
+  delayBetweenSpawns: 1
 --- !u!1 &547411059
 GameObject:
   m_ObjectHideFlags: 0
@@ -3726,7 +3730,7 @@ MonoBehaviour:
     file_cachedStartup: {fileID: 0}
     data_cachedStartup: 
     cacheStartup: 0
-  showNavGraphs: 1
+  showNavGraphs: 0
   showUnwalkableNodes: 1
   debugMode: 0
   debugFloor: 0
@@ -4179,12 +4183,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 772535887}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -9.65, y: 24.66, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -8.336266, y: 24.641203, z: -44.498955}
   m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_Father: {fileID: 1611693114}
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &772535891
 MonoBehaviour:
@@ -7198,12 +7202,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1280649880}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -14.35, y: 24.66, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -13.036266, y: 24.641203, z: -44.498955}
   m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_Father: {fileID: 1611693114}
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1294512894 stripped
 Transform:
@@ -8709,6 +8713,10 @@ Transform:
   - {fileID: 1652610760}
   - {fileID: 1230848104}
   - {fileID: 1680328382}
+  - {fileID: 393153082}
+  - {fileID: 1280649883}
+  - {fileID: 1761313668}
+  - {fileID: 772535890}
   m_Father: {fileID: 588138237}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -9498,12 +9506,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1761313665}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -11.85, y: 24.66, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -10.536266, y: 24.641203, z: -44.498955}
   m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_Father: {fileID: 1611693114}
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1828498520
 PrefabInstance:
@@ -10708,7 +10716,7 @@ PrefabInstance:
       objectReference: {fileID: 366300290}
     - target: {fileID: -6470361127330926277, guid: 961e23abeaacdde4eb5dd493c6634c73, type: 3}
       propertyPath: maxHealth
-      value: 3
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: -6470361127330926277, guid: 961e23abeaacdde4eb5dd493c6634c73, type: 3}
       propertyPath: moveSpeed
@@ -10772,7 +10780,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -6470361127330926277, guid: 961e23abeaacdde4eb5dd493c6634c73, type: 3}
       propertyPath: fireRate.Array.data[0]
-      value: 0.2
+      value: 0.05
       objectReference: {fileID: 0}
     - target: {fileID: -6470361127330926277, guid: 961e23abeaacdde4eb5dd493c6634c73, type: 3}
       propertyPath: fireRate.Array.data[1]
@@ -10840,7 +10848,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -6470361127330926277, guid: 961e23abeaacdde4eb5dd493c6634c73, type: 3}
       propertyPath: reloadDelay.Array.data[0]
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -6470361127330926277, guid: 961e23abeaacdde4eb5dd493c6634c73, type: 3}
       propertyPath: reloadDelay.Array.data[1]
