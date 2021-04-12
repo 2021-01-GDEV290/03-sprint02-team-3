@@ -7,6 +7,6 @@ public class CurrentRoundText : MonoBehaviour
 {
     private void Update()
     {
-        this.GetComponent<Text>().text = "" + ZombieSpawning.currentRound;
+        GetComponent<Text>().text = "" + ZombieSpawning.currentRound;
     }
 }

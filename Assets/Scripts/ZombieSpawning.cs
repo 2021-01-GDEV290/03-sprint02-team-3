@@ -7,10 +7,9 @@ public class ZombieSpawning : MonoBehaviour
     [Header("For Show Only")]
     public static int currentRound = 1; // The current round the player is on
     public static int numberOfZombiesRoundOne = 5; // The number of zombies that can spawn in the first round
-    //                                         (changing this changes amount of zombies per round)
-    
+    public static int numberOfZombiesIncrease = 3; // The number to increase max spawns by each round
+    public int increaser = 1; // The number to increase numberOfZombiesIncrease by each round
     public static int maxZombieSpawnsThisRound; // The number of zombies that can spawn on this round
-    //                                      (this is determined by the first round spawns)
 
     public static int zombiesSpawnedThisRound = 0; // The amount of zombies spawned this round
     public static int zombiesKilledThisRound = 0; // The amount of zombies killed this round
@@ -97,10 +96,11 @@ public class ZombieSpawning : MonoBehaviour
     void StartNextRound()
     {
         currentRound++;
-        maxZombieSpawnsThisRound = maxZombieSpawnsThisRound + 5;
+        maxZombieSpawnsThisRound += numberOfZombiesIncrease;
         zombiesSpawnedThisRound = 0;
         zombiesKilledThisRound = 0;
         roundDelayBegun = false;
+        numberOfZombiesIncrease += increaser;
     }
 
     public static void ResetGame()
@@ -109,5 +109,6 @@ public class ZombieSpawning : MonoBehaviour
         numberOfZombiesRoundOne = 5;
         zombiesSpawnedThisRound = 0;
         zombiesKilledThisRound = 0;
+        numberOfZombiesIncrease = 3;
     }
 }

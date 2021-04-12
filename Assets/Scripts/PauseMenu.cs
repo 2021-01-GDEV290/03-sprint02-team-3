@@ -63,7 +63,7 @@ public class PauseMenu : MonoBehaviour
 
     void ClearGameProgress()
     {
-        ZombieSpawning.ResetGame(); //Reset round
-        Player.points = 0; //Set points to 0
+        ZombieSpawning.ResetGame(); // Resets the game
+        Player.points = 0; // Set points to 0
     }
 }

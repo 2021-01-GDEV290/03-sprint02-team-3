@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class Door : MonoBehaviour
 {
+    private Collider2D collider;
     private GameObject player;
-    public int distance;
+    public float distance;
     public int pointsNeeded;
 
     public bool canBeOpened;
@@ -14,11 +15,12 @@ public class Door : MonoBehaviour
     {
         player = GameObject.Find("Player");
         canBeOpened = false;
+        collider = GetComponent<Collider2D>();
     }
 
     private void Update()
     {
-        if((player.transform.position - this.transform.position).magnitude < distance)
+        if((player.transform.position - transform.position).magnitude < distance)
         {
             canBeOpened = true;
             if (Input.GetKeyDown(KeyCode.E) && Player.points >= pointsNeeded)
@@ -26,6 +28,7 @@ public class Door : MonoBehaviour
                 Player.points -= pointsNeeded;
                 Debug.Log("Door has been bought for " + pointsNeeded + " points.");
                 gameObject.SetActive(false);
+                AstarPath.active.UpdateGraphs(collider.bounds);
             }
         } else
         {
