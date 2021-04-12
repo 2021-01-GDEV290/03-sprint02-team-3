@@ -154,8 +154,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 4968840365944648124}
-  maxHealth: 3
-  health: 3
+  maxHealth: 5
+  health: 5
   damage: 1
   isTouching: 0
   player: {fileID: 0}

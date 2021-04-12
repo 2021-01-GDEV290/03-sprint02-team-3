@@ -185,8 +185,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 4988461106913461961}
-  maxHealth: 3
-  health: 3
+  maxHealth: 5
+  health: 5
   damage: 1
   isTouching: 0
   player: {fileID: 0}
