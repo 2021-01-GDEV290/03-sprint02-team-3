@@ -9,6 +9,10 @@ public class GameOverText : MonoBehaviour
     public Player player;
     string text;
 
+    public string sceneName;
+    public Animator transition;
+    public float transitionTime;
+
     private void Start()
     {
         player = GameObject.Find("Player").GetComponent<Player>();
@@ -23,12 +27,19 @@ public class GameOverText : MonoBehaviour
             GetComponent<Text>().text = text;
             if (Input.GetKeyDown(KeyCode.E))
             {
-                SceneManager.LoadScene("Scoreboard");
+                StartCoroutine(LoadLevel(sceneName));
             }
         }
         else
         {
             GetComponent<Text>().text = "";
         }
+    }
+
+    IEnumerator LoadLevel(string sceneName)
+    {
+        transition.SetTrigger("Start");
+        yield return new WaitForSeconds(transitionTime);
+        SceneManager.LoadScene(sceneName);
     }
 }

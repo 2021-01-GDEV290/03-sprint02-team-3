@@ -675,13 +675,13 @@ MonoBehaviour:
       - m_Target: {fileID: 1616145396}
         m_TargetAssemblyTypeName: TitleScreenButtons, Assembly-CSharp
         m_MethodName: SettingsButton
-        m_Mode: 1
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: SettingsMenu
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &951729814
@@ -1293,8 +1293,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df69f51bacdb273419173473301180d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  trasition: {fileID: 834236294}
-  trasitionTime: 2
+  transition: {fileID: 834236294}
+  transitionTime: 2
 --- !u!1 &1883500619
 GameObject:
   m_ObjectHideFlags: 0

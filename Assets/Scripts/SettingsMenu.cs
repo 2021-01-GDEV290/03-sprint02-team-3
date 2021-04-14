@@ -11,6 +11,9 @@ public class SettingsMenu : MonoBehaviour
     public AudioMixer audioMixer;
     public Dropdown resolutionDropdown;
 
+    public Animator transition;
+    public float transitionTime = 2f;
+
     Resolution[] resolutions;
 
     private void Start()
@@ -53,9 +56,16 @@ public class SettingsMenu : MonoBehaviour
         Resolution resolution = resolutions[resolutionIndex];
         Screen.SetResolution(resolution.width, resolution.height, Screen.fullScreen);
     }
-    
-    public void ReturnToTitleScreen()
+
+    public void ReturnToTitleScreen(string sceneName)
     {
-        SceneManager.LoadScene("TitleScreen");
+        StartCoroutine(LoadLevel(sceneName));
+    }
+
+    IEnumerator LoadLevel(string sceneName)
+    {
+        transition.SetTrigger("Start");
+        yield return new WaitForSeconds(transitionTime);
+        SceneManager.LoadScene(sceneName);
     }
 }
