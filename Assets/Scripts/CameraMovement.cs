@@ -14,6 +14,11 @@ public class CameraMovement : MonoBehaviour
 
     private void LateUpdate()
     {
+        if (player == null)
+        {
+            return;
+        }
+
         float newXPosition = player.transform.position.x - offset.x;
         float newYPosition = player.transform.position.y - offset.y;
 

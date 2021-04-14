@@ -5,7 +5,8 @@ using UnityEngine.UI;
 
 public class RoundEndText : MonoBehaviour
 {
-    public int countdownTimer;
+    ZombieSpawning zombieScript;
+    float countdownTimer;
     public Text countdown;
 
     string text;
@@ -13,6 +14,8 @@ public class RoundEndText : MonoBehaviour
 
     private void Start()
     {
+        zombieScript = GameObject.Find("Main Camera").GetComponent<ZombieSpawning>();
+        countdownTimer = zombieScript.nextRoundDelay;
         text = GetComponent<Text>().text;
         GetComponent<Text>().text = "";
     }
@@ -34,15 +37,15 @@ public class RoundEndText : MonoBehaviour
 
     IEnumerator CountdownToNextRound()
     {
-        int temp = countdownTimer;
+        float temp = countdownTimer;
 
         while (countdownTimer > 0)
         {
-            countdown.text = text + countdownTimer.ToString();
+            countdown.text = text + countdownTimer.ToString("#.0");
 
-            yield return new WaitForSeconds(1f);
+            yield return new WaitForSeconds(.1f);
 
-            countdownTimer--;
+            countdownTimer -= .1f;
         }
 
         coroutineStarted = false;

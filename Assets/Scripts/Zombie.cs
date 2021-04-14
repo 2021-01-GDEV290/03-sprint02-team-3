@@ -76,10 +76,13 @@ public class Zombie : MonoBehaviour
 
     public void Damage(int damage)
     {
-        health = health - damage;
+        health -= damage;
+        ScoreboardTracker.damageDealt += damage;
         if (health <= 0 && !alreadyKilled)
         {
             Player.points += pointsGivenOnKill;
+            ScoreboardTracker.score += pointsGivenOnKill;
+            ScoreboardTracker.kills += 1;
             ZombieSpawning.zombiesKilledThisRound++;
             alreadyKilled = true;
             RandomDrop();
@@ -87,6 +90,7 @@ public class Zombie : MonoBehaviour
             return;
         }
         Player.points += pointsGivenOnHit;
+        ScoreboardTracker.score += pointsGivenOnHit;
     }
 
     public void RandomDrop()

@@ -18,6 +18,10 @@ public class ShotgunToilet : MonoBehaviour
 
     private void Update()
     {
+        if (player == null)
+        {
+            return;
+        }
         if ((player.transform.position - transform.position).magnitude < distance && !alreadyUsed)
         {
             if (Input.GetKeyDown(KeyCode.E))

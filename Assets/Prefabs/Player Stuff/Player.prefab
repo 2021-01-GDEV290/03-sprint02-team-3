@@ -185,18 +185,36 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 01c6fe2cfe7a95745ba952e83572d389, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 3
+  moveSpeed: 2.5
   cam: {fileID: 0}
   maxHealth: 3
   health: 3
   timeBeforeRegenStart: 3
-  timeBetweenRegens: 0.5
-  firePoint: {fileID: 0}
+  timeBetweenRegens: 1
+  state: 0
+  firePoint:
+  - {fileID: 0}
   bulletPrefab: {fileID: 0}
   animator: {fileID: 115958772618798923}
-  bulletForce: 20
-  maxAmmo: 15
+  bulletForce:
+  - 20
+  - 25
+  - 20
+  - 30
+  maxAmmo: 0f000000280000000600000064000000
   currentAmmo: 0
-  reloadDelay: 1
-  shootingDelay: 0.2
+  remainingAmmo: 0
+  reloadDelay:
+  - 2
+  - 3
+  - 3.5
+  - 5
+  fireRate:
+  - 0.2
+  - 0.1
+  - 0.7
+  - 0.05
+  numPelletsPerShotgunShot: 5
+  shotgunSpread: 30
+  minigunSpread: 15
   trackedPoints: 0

@@ -20,7 +20,11 @@ public class Door : MonoBehaviour
 
     private void Update()
     {
-        if((player.transform.position - transform.position).magnitude < distance)
+        if (player == null)
+        {
+            return;
+        }
+        if ((player.transform.position - transform.position).magnitude < distance)
         {
             canBeOpened = true;
             if (Input.GetKeyDown(KeyCode.E) && Player.points >= pointsNeeded)

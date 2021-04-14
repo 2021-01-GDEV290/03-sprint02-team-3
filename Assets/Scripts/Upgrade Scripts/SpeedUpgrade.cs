@@ -23,6 +23,10 @@ public class SpeedUpgrade : MonoBehaviour
 
     private void Update()
     {
+        if(player == null)
+        {
+            return;
+        }
         if ((player.transform.position - this.transform.position).magnitude < distance)
         {
             canBeBought = true;

@@ -167,9 +167,10 @@ public class Player : MonoBehaviour
         canRegen = false;
         CancelInvoke("Regen");
         health = health - damage;
+        ScoreboardTracker.damageTaken += damage;
         if (health <= 0)
         {
-            Destroy(gameObject);
+            gameObject.SetActive(false);
         }
     }
 
