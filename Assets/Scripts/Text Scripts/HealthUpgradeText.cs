@@ -17,7 +17,7 @@ public class HealthUpgradeText : MonoBehaviour
     {
         if (healthUpgrade.GetComponent<HealthUpgrade>().canBeBought)
         {
-            this.GetComponent<Text>().text = "Press E to \nincrease health\n(" + pointsNeeded + " points)";
+            this.GetComponent<Text>().text = "PRESS E TO \nINCREASE HEALTH\n(" + pointsNeeded + " POINTS)";
         }
         else
         {

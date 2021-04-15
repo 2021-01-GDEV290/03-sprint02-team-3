@@ -15,16 +15,16 @@ public class AmmoText : MonoBehaviour
         switch (player.state)
         {
             case PlayerState.normal:
-                txt.text = "Ammo: " + player.currentAmmo + " / ∞";
+                txt.text = "AMMO: " + player.currentAmmo + " / ∞";
                 break;
             case PlayerState.assaultRifle:
-                txt.text = "Ammo: " + player.currentAmmo + " / " + player.remainingAmmo;
+                txt.text = "AMMO: " + player.currentAmmo + " / " + player.remainingAmmo;
                 break;
             case PlayerState.shotgun:
-                txt.text = "Ammo: " + player.currentAmmo + " / " + player.remainingAmmo;
+                txt.text = "AMMO: " + player.currentAmmo + " / " + player.remainingAmmo;
                 break;
             case PlayerState.minigun:
-                txt.text = "Ammo: " + player.currentAmmo + " / 0";
+                txt.text = "AMMO: " + player.currentAmmo + " / 0";
                 break;
         }
     }

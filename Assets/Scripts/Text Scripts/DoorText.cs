@@ -21,7 +21,7 @@ public class DoorText : MonoBehaviour
         }
         if (door.GetComponent<Door>().canBeOpened)
         {
-            this.GetComponent<Text>().text = "Press E\nto open\n(" + pointsNeeded + " points)";
+            this.GetComponent<Text>().text = "PRESS E\nTO OPEN\n(" + pointsNeeded + " POINTS)";
         } else
         {
             this.GetComponent<Text>().text = "";

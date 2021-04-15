@@ -17,7 +17,7 @@ public class SpeedUpgradeText : MonoBehaviour
     {
         if (speedUpgrade.GetComponent<SpeedUpgrade>().canBeBought)
         {
-            this.GetComponent<Text>().text = "Press E to \nincrease speed\n(" + pointsNeeded + " points)";
+            this.GetComponent<Text>().text = "PRESS E TO \nINCREASE SPEED\n(" + pointsNeeded + " POINTS)";
         }
         else
         {

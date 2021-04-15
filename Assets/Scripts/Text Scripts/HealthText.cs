@@ -14,6 +14,6 @@ public class HealthText : MonoBehaviour
     private void Update()
     {
         txt.GetComponent<Text>();
-        txt.text = "Health: " + player.health;
+        txt.text = "HEALTH: " + player.health;
     }
 }

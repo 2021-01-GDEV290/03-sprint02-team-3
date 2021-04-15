@@ -12,16 +12,7 @@ public class PointsText : MonoBehaviour
 
     private void Update()
     {
-        if (currentPoints != Player.points)
-        {
-            currentPoints = Player.points;
-            UpdatePoints();
-        }
-    }
-
-    void UpdatePoints()
-    {
         txt.GetComponent<Text>();
-        txt.text = "Points: " + currentPoints;
+        txt.text = "POINTS: " + Player.points;
     }
 }
