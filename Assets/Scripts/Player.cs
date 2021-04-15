@@ -82,7 +82,7 @@ public class Player : MonoBehaviour
                     animator.SetBool("Shoot", true);
                     Shoot(0);
                 }
-                if (Input.GetKeyDown(KeyCode.R))
+                if (Input.GetKeyDown(KeyCode.R) && currentAmmo != maxAmmo[0])
                 {
                     canShoot = false;
                     Invoke("Reload", reloadDelay[0]);
@@ -101,7 +101,7 @@ public class Player : MonoBehaviour
                     animator.SetBool("Shoot", true);
                     Shoot(1);
                 }
-                if (Input.GetKeyDown(KeyCode.R))
+                if (Input.GetKeyDown(KeyCode.R) && currentAmmo != maxAmmo[1])
                 {
                     canShoot = false;
                     Invoke("Reload", reloadDelay[1]);
@@ -120,7 +120,7 @@ public class Player : MonoBehaviour
                     animator.SetBool("Shoot", true);
                     Shoot(2);
                 }
-                if (Input.GetKeyDown(KeyCode.R))
+                if (Input.GetKeyDown(KeyCode.R) && currentAmmo != maxAmmo[2])
                 {
                     canShoot = false;
                     Invoke("Reload", reloadDelay[2]);
@@ -143,6 +143,7 @@ public class Player : MonoBehaviour
         }
 
         // Health
+        if (health < 0) health = 0;
         if (health != maxHealth && !canRegen)
         {
             canRegen = true;

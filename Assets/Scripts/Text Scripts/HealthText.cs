@@ -13,16 +13,7 @@ public class HealthText : MonoBehaviour
 
     private void Update()
     {
-        if(currentHealth != player.health)
-        {
-            currentHealth = player.health;
-            UpdateHealth();
-        }
-    }
-
-    void UpdateHealth()
-    {
         txt.GetComponent<Text>();
-        txt.text = "Health: " + currentHealth;
+        txt.text = "Health: " + player.health;
     }
 }
