@@ -40,6 +40,13 @@ public class GameOverText : MonoBehaviour
     {
         transition.SetTrigger("Start");
         yield return new WaitForSeconds(transitionTime);
+        ClearGameProgress();
         SceneManager.LoadScene(sceneName);
+    }
+
+    void ClearGameProgress()
+    {
+        ZombieSpawning.ResetGame(); // Resets the game
+        Player.points = 0; // Set points to 0
     }
 }

@@ -55,7 +55,7 @@ public class WeaponUpgrade : MonoBehaviour
                     }
                 } else if(currentBuyableUpgrade == 3 && Player.points >= thirdUpgradePrice)
                 {
-                    Player.points -= firstUpgradePrice;
+                    Player.points -= thirdUpgradePrice;
                     currentBuyableUpgrade = 4;
                     bullet.damage = thirdUpgradeDamage;
                     playerScript.maxAmmo[0] = thirdUpgradeAmmo;

@@ -122,9 +122,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65b5aed66e9e4754c84c7c44e4a1c2de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  firstUpgradePrice: 30
-  secondUpgradePrice: 50
-  thirdUpgradePrice: 100
+  firstUpgradePrice: 100
+  secondUpgradePrice: 150
+  thirdUpgradePrice: 300
   distance: 2
   firstUpgradeDamage: 2
   thirdUpgradeDamage: 3

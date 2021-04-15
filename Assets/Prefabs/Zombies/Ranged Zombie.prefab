@@ -199,7 +199,7 @@ MonoBehaviour:
   ARDropChance: 0.45
   shotgunDropChance: 0.45
   minigunDropChance: 0.1
-  startTime: 3
+  startTime: 1.5
   repeatTime: 1.5
   projectile: {fileID: 3264624316677777033, guid: 6c28acaaa6d79f44f877c93a785f8bce, type: 3}
   firePoint: {fileID: 4988461106410270663}

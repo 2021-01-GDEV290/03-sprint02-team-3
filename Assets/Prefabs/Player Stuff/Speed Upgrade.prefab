@@ -122,7 +122,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81eb160b1bfd06e4ba07d4dae4bc0696, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pointsNeeded: 30
+  pointsNeeded: 100
   distance: 2
   canBeBought: 0
   bought: 0
