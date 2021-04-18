@@ -33,6 +33,12 @@ public class ZombieSpawning : MonoBehaviour
     public float nextRoundDelay; // Determines how long to wait before starting the next round
     public float delayBetweenSpawns; // Determines how long to wait before another zombie is spawned
 
+    int currentRoundHealth;
+    public int zombieHealthIncreaser;
+    int currentRoundBossHealth;
+    public int bossHealthIncreaser;
+    bool alreadyRan;
+
     bool isBossRound;
     bool canSpawn;
     bool roundDelayBegun = false;
@@ -49,12 +55,21 @@ public class ZombieSpawning : MonoBehaviour
         nextBossRound = Random.Range(firstBossRoundNumber - 1, firstBossRoundNumber + 1);
         Debug.Log("First boss round is round " + nextBossRound);
         isBossRound = false;
+        currentRoundHealth = 0;
+        alreadyRan = false;
     }
     private void Update()
     {
         zombieKillsTracked = zombiesKilledThisRound;
 
-        if(zombiesKilledThisRound >= maxZombieSpawnsThisRound && !roundDelayBegun)
+        if (zombiesKilledThisRound >= maxZombieSpawnsThisRound && isBossRound && !alreadyRan) // The boss round has ended
+        {
+            currentRoundHealth += zombieHealthIncreaser;
+            currentRoundBossHealth += bossHealthIncreaser;
+            alreadyRan = true;
+        }
+
+        if (zombiesKilledThisRound >= maxZombieSpawnsThisRound && !roundDelayBegun)
         {
             Invoke("StartNextRound", nextRoundDelay);
             roundDelayBegun = true;
@@ -93,20 +108,25 @@ public class ZombieSpawning : MonoBehaviour
         Transform randomSpawn = availableSpawns[Random.Range(0, availableSpawns.Count)];
         float thisRandom = Random.Range(0, normalZombieSpawnChance + fastZombieSpawnChance
             + rangedZombieSpawnChance);
+        GameObject zombie;
         if (thisRandom <= tempNormalZombieSpawnChance)
         {
-            Instantiate(zombiePrefabs[0], randomSpawn.position + new Vector3(0, 0, -10),
+            zombie = Instantiate(zombiePrefabs[0], randomSpawn.position + new Vector3(0, 0, -10),
                 randomSpawn.rotation);
         }
         else if (thisRandom <= tempFastZombieSpawnChance)
         {
-            Instantiate(zombiePrefabs[1], randomSpawn.position + new Vector3(0, 0, -10),
-                randomSpawn.rotation);
-        } else
-        {
-            Instantiate(zombiePrefabs[2], randomSpawn.position + new Vector3(0, 0, -10),
+            zombie = Instantiate(zombiePrefabs[1], randomSpawn.position + new Vector3(0, 0, -10),
                 randomSpawn.rotation);
         }
+        else
+        {
+            zombie = Instantiate(zombiePrefabs[2], randomSpawn.position + new Vector3(0, 0, -10),
+                randomSpawn.rotation);
+        }
+        Zombie zombieScript = zombie.GetComponent<Zombie>();
+        zombieScript.maxHealth += currentRoundHealth;
+        zombieScript.health += currentRoundHealth;
         Debug.Log("Spawned zombie with the number " + thisRandom);
         zombiesSpawnedThisRound++;
         canSpawn = true;
@@ -115,14 +135,22 @@ public class ZombieSpawning : MonoBehaviour
     void SpawnZombieBossRound()
     {
         Transform randomSpawn = availableSpawns[Random.Range(0, availableSpawns.Count)];
-        if(zombiesSpawnedThisRound == 0)
+        GameObject zombie;
+        Zombie zombieScript;
+        if (zombiesSpawnedThisRound == 0)
         {
-            Instantiate(zombiePrefabs[3], randomSpawn.position + new Vector3(0, 0, -10), 
+            zombie = Instantiate(zombiePrefabs[3], randomSpawn.position + new Vector3(0, 0, -10), 
                 randomSpawn.rotation);
+            zombieScript = zombie.GetComponent<Zombie>();
+            zombieScript.maxHealth += currentRoundBossHealth;
+            zombieScript.health += currentRoundBossHealth;
         } else
         {
-            Instantiate(zombiePrefabs[1], randomSpawn.position + new Vector3(0, 0, -10)
+            zombie = Instantiate(zombiePrefabs[1], randomSpawn.position + new Vector3(0, 0, -10)
                 , randomSpawn.rotation);
+            zombieScript = zombie.GetComponent<Zombie>();
+            zombieScript.maxHealth += currentRoundHealth;
+            zombieScript.health += currentRoundHealth;
         }
         zombiesSpawnedThisRound++;
         canSpawn = true;
@@ -133,6 +161,7 @@ public class ZombieSpawning : MonoBehaviour
         if(isBossRound)
         {
             isBossRound = false;
+            alreadyRan = false;
         }
         currentRound++;
         zombiesSpawnedThisRound = 0;
