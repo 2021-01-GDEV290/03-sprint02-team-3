@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class ScoreboardBackButton : MonoBehaviour
+public class BackButton : MonoBehaviour
 {
     public Animator transition;
     public float transitionTime;
@@ -17,10 +17,6 @@ public class ScoreboardBackButton : MonoBehaviour
     {
         transition.SetTrigger("Start");
         yield return new WaitForSeconds(transitionTime);
-        ScoreboardTracker.score = 0;
-        ScoreboardTracker.kills = 0;
-        ScoreboardTracker.damageTaken = 0;
-        ScoreboardTracker.damageDealt = 0;
         SceneManager.LoadScene(sceneName);
     }
 }

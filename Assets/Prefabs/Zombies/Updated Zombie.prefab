@@ -160,7 +160,7 @@ MonoBehaviour:
   isTouching: 0
   player: {fileID: 0}
   pointsGivenOnHit: 1
-  pointsGivenOnKill: 3
+  pointsGivenOnKill: 1
   assaultRifleDrop: {fileID: 5554010302887302207, guid: 734516db0c7d6ef409dacd6885d67d5f, type: 3}
   shotgunDrop: {fileID: 4464876914902685994, guid: 425cda3af78b25742a5eeb46b4466aaa, type: 3}
   minigunDrop: {fileID: 6650329975290048796, guid: 6cf4360378ba0574badb728dacb36039, type: 3}
