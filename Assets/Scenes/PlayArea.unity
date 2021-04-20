@@ -132,7 +132,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3771057363648525406, guid: 0b5d6523c0617d5459974ca78555acc3, type: 3}
       propertyPath: m_RootOrder
-      value: 8
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 3771057363648525406, guid: 0b5d6523c0617d5459974ca78555acc3, type: 3}
       propertyPath: m_LocalPosition.x
@@ -4918,7 +4918,7 @@ MonoBehaviour:
     file_cachedStartup: {fileID: 0}
     data_cachedStartup: 
     cacheStartup: 0
-  showNavGraphs: 1
+  showNavGraphs: 0
   showUnwalkableNodes: 1
   debugMode: 0
   debugFloor: 0
@@ -8662,7 +8662,7 @@ RectTransform:
   - {fileID: 553250725}
   - {fileID: 359057993}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -13749,7 +13749,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2058014717}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 10.217466, y: 3.929295, z: 0}
+  m_LocalPosition: {x: 10.217466, y: 3.929295, z: 1}
   m_LocalScale: {x: 12.600941, y: 12.17162, z: 1}
   m_Children: []
   m_Father: {fileID: 2141663437}

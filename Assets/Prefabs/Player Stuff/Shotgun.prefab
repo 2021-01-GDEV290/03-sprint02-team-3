@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 8723457892396249145}
   - component: {fileID: 3566780753160583429}
   - component: {fileID: 5038311369057012383}
+  - component: {fileID: -2965953309442692111}
   m_Layer: 9
   m_Name: Shotgun
   m_TagString: Weapon
@@ -27,7 +28,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4464876914902685994}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -10.0998535, y: 2.9306974, z: -2078.6746}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.6, y: 0.6, z: 0.6}
   m_Children: []
   m_Father: {fileID: 0}
@@ -122,4 +123,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8d19ee981309854087278dcd60bd8a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animator: {fileID: -2965953309442692111}
   weaponType: Shotgun
+  timeUntilDestroy: 20
+  slowFlashTime: 7.5
+  fastFlashTime: 2.5
+--- !u!95 &-2965953309442692111
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4464876914902685994}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 48a1f5d2fd3f80547b852daf0f6d6fac, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0

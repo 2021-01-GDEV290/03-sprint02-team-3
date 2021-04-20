@@ -4,7 +4,18 @@ using UnityEngine;
 
 public class WeaponDrop : MonoBehaviour
 {
+    public Animator animator;
+
     public string weaponType;
+    public float timeUntilDestroy;
+
+    public float slowFlashTime; // When does the animator trigger the slow flash animation
+    public float fastFlashTime; // When does the animator trigger the fast flash animation
+
+    private void Awake()
+    {
+        InvokeRepeating("WaitUntilDestroy", 1f, 1f);
+    }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -32,6 +43,25 @@ public class WeaponDrop : MonoBehaviour
                     break;
             }
             Destroy(gameObject);
+        }
+    }
+
+    void WaitUntilDestroy()
+    {
+        timeUntilDestroy--;
+        if (timeUntilDestroy <= 0)
+        {
+            Destroy(gameObject);
+        }
+        if(timeUntilDestroy <= 2.5f)
+        {
+            animator.SetBool("Eight", true);
+            return;
+        }
+        if(timeUntilDestroy <= 7.5f)
+        {
+            animator.SetBool("Halfway", true);
+            return;
         }
     }
 }
