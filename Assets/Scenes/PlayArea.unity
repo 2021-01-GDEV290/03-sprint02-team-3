@@ -14504,6 +14504,10 @@ PrefabInstance:
       value: 30
       objectReference: {fileID: 0}
     - target: {fileID: -6470361127330926277, guid: 961e23abeaacdde4eb5dd493c6634c73, type: 3}
+      propertyPath: timeBetweenHits
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: -6470361127330926277, guid: 961e23abeaacdde4eb5dd493c6634c73, type: 3}
       propertyPath: numPelletsPerShot
       value: 3
       objectReference: {fileID: 0}

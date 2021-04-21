@@ -25,8 +25,10 @@ public class Player : MonoBehaviour
     public int health;
     public float timeBeforeRegenStart;
     public float timeBetweenRegens;
+    public float timeBetweenHits;
 
     bool canRegen;
+    bool canBeHit;
 
     [Header("Shooting")] // For all arrays, index 0 is normal, 1 is AR, 2 is shotgun, and 3 is minigun
     public PlayerState state = PlayerState.normal;
@@ -62,6 +64,7 @@ public class Player : MonoBehaviour
 
         // Health
         health = maxHealth;
+        canBeHit = true;
     }
 
     // Update is called once per frame
@@ -165,14 +168,26 @@ public class Player : MonoBehaviour
 
     public void Damage(int damage)
     {
+        if(!canBeHit)
+        {
+            return;
+        }
         canRegen = false;
         CancelInvoke("Regen");
         health = health - damage;
+        canBeHit = false;
         ScoreboardTracker.damageTaken += damage;
         if (health <= 0)
         {
             gameObject.SetActive(false);
         }
+        StartCoroutine("WaitUntilNextHit");
+    }
+
+    IEnumerator WaitUntilNextHit()
+    {
+        yield return new WaitForSeconds(timeBetweenHits);
+        canBeHit = true;
     }
 
     void Shoot(int index)
