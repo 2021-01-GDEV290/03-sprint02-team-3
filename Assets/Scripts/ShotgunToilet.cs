@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class ShotgunToilet : MonoBehaviour
 {
+    public AudioSource sound;
+
     bool alreadyUsed;
 
     public float distance;
@@ -26,6 +28,7 @@ public class ShotgunToilet : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.E))
             {
+                sound.Play();
                 player.state = PlayerState.shotgun;
                 player.animator.SetInteger("Current State", 2);
                 player.currentAmmo = player.maxAmmo[2];

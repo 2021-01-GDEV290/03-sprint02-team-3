@@ -2922,8 +2922,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   audioMixer: {fileID: 24100000, guid: fcd6efff96b8b894789d283997939bcb, type: 2}
   resolutionDropdown: {fileID: 167911849}
-  trasition: {fileID: 1316613292}
-  trasitionTime: 2
+  transition: {fileID: 1316613292}
+  transitionTime: 1
 --- !u!114 &2143969278
 MonoBehaviour:
   m_ObjectHideFlags: 0
