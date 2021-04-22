@@ -166,8 +166,8 @@ MonoBehaviour:
   minigunDrop: {fileID: 6650329975290048796, guid: 6cf4360378ba0574badb728dacb36039, type: 3}
   dropChance: 1
   ARDropChance: 0
-  shotgunDropChance: 1
-  minigunDropChance: 0
+  shotgunDropChance: 0
+  minigunDropChance: 0.1
 --- !u!114 &7698045810665253273
 MonoBehaviour:
   m_ObjectHideFlags: 0

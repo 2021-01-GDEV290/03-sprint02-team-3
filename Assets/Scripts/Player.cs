@@ -30,9 +30,13 @@ public class Player : MonoBehaviour
     bool canRegen;
     bool canBeHit;
 
-    [Header("Shooting")] // For all arrays, index 0 is normal, 1 is AR, 2 is shotgun, and 3 is minigun
+    [Header("Shooting")] // For all arrays, index 0 is pistol, 1 is AR, 2 is shotgun, and 3 is minigun
     public PlayerState state = PlayerState.normal;
     public Transform[] firePoint;
+    public AudioSource[] shotSounds;
+    public AudioSource[] reloadSounds;
+    public AudioSource[] grunts;
+    public AudioSource[] shotEndSounds; // Specifically for the AR (0) and minigun (1)
     public GameObject bulletPrefab;
     public Animator animator;
     public float[] bulletForce;
@@ -84,10 +88,12 @@ public class Player : MonoBehaviour
                 {
                     animator.SetBool("Shoot", true);
                     Shoot(0);
+                    shotSounds[0].Play();
                 }
                 if (Input.GetKeyDown(KeyCode.R) && currentAmmo != maxAmmo[0])
                 {
                     canShoot = false;
+                    reloadSounds[0].Play();
                     Invoke("Reload", reloadDelay[0]);
                 }
                 break;
@@ -142,6 +148,10 @@ public class Player : MonoBehaviour
                     animator.SetBool("Shoot", true);
                     Shoot(3);
                 }
+                if (Input.GetButtonUp("Fire1") && !(PauseMenu.GameIsPaused))
+                {
+                    shotEndSounds[1].Play();
+                }
                 break;
         }
 
@@ -168,6 +178,7 @@ public class Player : MonoBehaviour
 
     public void Damage(int damage)
     {
+        grunts[Random.Range(0, grunts.Length)].Play();
         if(!canBeHit)
         {
             return;
@@ -219,6 +230,7 @@ public class Player : MonoBehaviour
             var MovementDirection = new Vector2(Mathf.Cos(rotateAngle * Mathf.Deg2Rad),
                 Mathf.Sin(rotateAngle * Mathf.Deg2Rad)).normalized;
             rb.AddForce(((Vector2)firePoint[index].up + MovementDirection) * bulletForce[index], ForceMode2D.Impulse);
+            shotSounds[3].Play();
         } else
         {
             GameObject bullet = Instantiate(bulletPrefab, firePoint[index].position, firePoint[index].rotation);
