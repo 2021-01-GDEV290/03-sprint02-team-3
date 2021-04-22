@@ -19,7 +19,6 @@ public class FireSound : MonoBehaviour
 
     private void Update()
     {
-        Debug.Log((player.transform.position - transform.position).magnitude);
         if(currentlyPaused)
         {
             if((player.transform.position - transform.position).magnitude <= distance) {
