@@ -4342,7 +4342,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5ca6af036f69286499f0175ec32e66ac, type: 3}
   m_Name: 
@@ -4511,15 +4511,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2507569169493293494, guid: 15cb8e175f7c7a541bdf13d8d8e8940d, type: 3}
       propertyPath: firstUpgradePrice
-      value: 100
+      value: 250
       objectReference: {fileID: 0}
     - target: {fileID: 2507569169493293494, guid: 15cb8e175f7c7a541bdf13d8d8e8940d, type: 3}
       propertyPath: thirdUpgradePrice
-      value: 300
+      value: 500
       objectReference: {fileID: 0}
     - target: {fileID: 2507569169493293494, guid: 15cb8e175f7c7a541bdf13d8d8e8940d, type: 3}
       propertyPath: secondUpgradePrice
-      value: 150
+      value: 300
       objectReference: {fileID: 0}
     - target: {fileID: 8255399909252980106, guid: 15cb8e175f7c7a541bdf13d8d8e8940d, type: 3}
       propertyPath: m_Name
@@ -4546,7 +4546,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!95 &553250721
 Animator:
   serializedVersion: 3
@@ -15098,16 +15098,20 @@ PrefabInstance:
       objectReference: {fileID: 519420031}
     - target: {fileID: 5621220639782836156, guid: 961e23abeaacdde4eb5dd493c6634c73, type: 3}
       propertyPath: health
-      value: 100
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5621220639782836156, guid: 961e23abeaacdde4eb5dd493c6634c73, type: 3}
       propertyPath: maxHealth
-      value: 100
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5621220639782836156, guid: 961e23abeaacdde4eb5dd493c6634c73, type: 3}
       propertyPath: bulletPrefab
       value: 
       objectReference: {fileID: 15747576}
+    - target: {fileID: 5621220639782836156, guid: 961e23abeaacdde4eb5dd493c6634c73, type: 3}
+      propertyPath: timeBetweenHits
+      value: 0.75
+      objectReference: {fileID: 0}
     - target: {fileID: 5621220639782836156, guid: 961e23abeaacdde4eb5dd493c6634c73, type: 3}
       propertyPath: reloadDelay.Array.size
       value: 3

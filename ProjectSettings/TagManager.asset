@@ -8,6 +8,7 @@ TagManager:
   - Obstacle
   - Bullet
   - Weapon
+  - MusicPlayer
   layers:
   - Default
   - TransparentFX

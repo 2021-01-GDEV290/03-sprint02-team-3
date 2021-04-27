@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class ScoreboardBackButton : MonoBehaviour
+public class BackButton : MonoBehaviour
 {
     public Animator transition;
     public float transitionTime;

@@ -8,11 +8,13 @@ public class TitleScreenButtons : MonoBehaviour
     public AudioSource[] sounds;
     public Animator transition;
     public float transitionTime = 2f;
+
     public void StartButton(string sceneName)
     {
         StartCoroutine(LoadLevel(sceneName));
         sounds[0].Play();
     }
+
     public void SettingsButton(string sceneName)
     {
         StartCoroutine(LoadLevel(sceneName));

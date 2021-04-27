@@ -8,6 +8,7 @@ using UnityEngine.SceneManagement;
 
 public class SettingsMenu : MonoBehaviour
 {
+    public AudioSource sound;
     public AudioMixer audioMixer;
     public Dropdown resolutionDropdown;
 
@@ -48,6 +49,7 @@ public class SettingsMenu : MonoBehaviour
 
     public void SetFullscreen(bool isFullscreen)
     {
+        sound.Play();
         Screen.fullScreen = isFullscreen;
     }
 
@@ -59,6 +61,7 @@ public class SettingsMenu : MonoBehaviour
 
     public void ReturnToTitleScreen(string sceneName)
     {
+        sound.Play();
         StartCoroutine(LoadLevel(sceneName));
     }
 

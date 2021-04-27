@@ -27,7 +27,7 @@ public class HealthUpgrade : MonoBehaviour
         {
             return;
         }
-        if ((player.transform.position - this.transform.position).magnitude < distance)
+        if ((player.transform.position - transform.position).magnitude < distance)
         {
             canBeBought = true;
             if (Input.GetKeyDown(KeyCode.E) && Player.points >= pointsNeeded && !bought)
