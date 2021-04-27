@@ -13,5 +13,7 @@ public class BackgroundMusicCheck : MonoBehaviour
         {
             Destroy(musicGOs[i]);
         }
+        
+        
     }
 }
