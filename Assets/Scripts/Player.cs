@@ -178,11 +178,11 @@ public class Player : MonoBehaviour
 
     public void Damage(int damage)
     {
-        grunts[Random.Range(0, grunts.Length)].Play();
         if(!canBeHit)
         {
             return;
         }
+        grunts[Random.Range(0, grunts.Length)].Play();
         canRegen = false;
         CancelInvoke("Regen");
         health = health - damage;

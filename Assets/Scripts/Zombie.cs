@@ -32,12 +32,61 @@ public class Zombie : MonoBehaviour
     float tempShotgunDropChance;
     public float minigunDropChance;
 
+    [Header("Sound")]
+    public AudioSource[] sounds;
+    public float timeBetweenSounds;
+    public float distanceToPlaySound;
+    public bool canPlaySound;
+    public float temp;
+    bool alreadyRan;
+
     private void Start()
     {
         health = maxHealth;
         player = GameObject.Find("Player").GetComponent<Player>();
         tempARDropChance = ARDropChance;
         tempShotgunDropChance = tempARDropChance + shotgunDropChance;
+        canPlaySound = true;
+        alreadyRan = false;
+        temp = timeBetweenSounds;
+        if(((Vector2) player.transform.position - (Vector2) transform.position).magnitude <= distanceToPlaySound)
+        {
+            sounds[Random.Range(0, sounds.Length)].Play();
+        }
+    }
+
+    private void Update() // Used for sound effects only
+    {
+        if(player == null)
+        {
+            return;
+        }
+        Debug.Log(((Vector2) player.transform.position - (Vector2) transform.position).magnitude);
+        if (canPlaySound && ((Vector2) player.transform.position - (Vector2) transform.position).magnitude <= distanceToPlaySound)
+        {
+            sounds[Random.Range(0, sounds.Length)].Play();
+            canPlaySound = false;
+        }
+        if (!canPlaySound && !alreadyRan)
+        {
+            InvokeRepeating("DecreaseSoundTime", 0f, .1f);
+            alreadyRan = true;
+        }
+    }
+
+    void DecreaseSoundTime()
+    {
+        if(temp > 0)
+        {
+            temp -= 0.1f;
+            if(temp <= 0)
+            {
+                canPlaySound = true;
+                alreadyRan = false;
+                temp = timeBetweenSounds;
+                CancelInvoke("DecreaseSoundTime");
+            }
+        } 
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -70,7 +119,7 @@ public class Zombie : MonoBehaviour
             player.Damage(damage);
         } else
         {
-            CancelInvoke();
+            CancelInvoke("DamagePlayer");
         }
     }
 
