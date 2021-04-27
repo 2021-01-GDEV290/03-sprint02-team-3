@@ -61,7 +61,6 @@ public class Zombie : MonoBehaviour
         {
             return;
         }
-        Debug.Log(((Vector2) player.transform.position - (Vector2) transform.position).magnitude);
         if (canPlaySound && ((Vector2) player.transform.position - (Vector2) transform.position).magnitude <= distanceToPlaySound)
         {
             sounds[Random.Range(0, sounds.Length)].Play();

@@ -9,8 +9,10 @@ using UnityEngine.SceneManagement;
 public class SettingsMenu : MonoBehaviour
 {
     public AudioSource sound;
-    public AudioMixer audioMixer;
+    public AudioMixer[] audioMixers; // 0 is music, 1 is sound
     public Dropdown resolutionDropdown;
+
+    public Slider[] sliders;
 
     public Animator transition;
     public float transitionTime = 2f;
@@ -19,6 +21,9 @@ public class SettingsMenu : MonoBehaviour
 
     private void Start()
     {
+        sliders[0].value = PlayerPrefs.GetFloat("MusicVolume", 0.75f);
+        sliders[1].value = PlayerPrefs.GetFloat("SoundVolume", 0.75f);
+
         resolutions = resolutions = Screen.resolutions.Select(resolution => new Resolution 
         { 
             width = resolution.width, height = resolution.height 
@@ -42,9 +47,18 @@ public class SettingsMenu : MonoBehaviour
         resolutionDropdown.RefreshShownValue();
     }
 
-    public void SetVolume(float volume)
+    public void SetMusicVolume()
     {
-        audioMixer.SetFloat("volume", volume);
+        float volume = sliders[0].value;
+        audioMixers[0].SetFloat("volume", Mathf.Log10(volume) * 20);
+        PlayerPrefs.SetFloat("MusicVolume", volume);
+    }
+
+    public void SetSoundVolume()
+    {
+        float volume = sliders[1].value;
+        audioMixers[1].SetFloat("volume", Mathf.Log10(volume) * 20);
+        PlayerPrefs.SetFloat("SoundVolume", volume);
     }
 
     public void SetFullscreen(bool isFullscreen)
