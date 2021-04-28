@@ -12,6 +12,7 @@ public class ZombieSpawning : MonoBehaviour
     public int numZombiesIncrease = 3;
     public int increaser = 1; // The number to increase numberOfZombiesIncrease by each round
     public static int maxZombieSpawnsThisRound; // The number of zombies that can spawn on this round
+    int tempZombieSpawnsThisRound; // For saving the amount of zombies that will spawn after a boss round
 
     public int firstBossRoundNumber; // This is a random number from n-1 to n+1 (so if it is 5, the first boss
     //                            spawns on a random round from 4-6)
@@ -158,10 +159,12 @@ public class ZombieSpawning : MonoBehaviour
 
     void StartNextRound()
     {
+        bool resetZombieSpawns = false;
         if(isBossRound)
         {
             isBossRound = false;
             alreadyRan = false;
+            resetZombieSpawns = true;
         }
         currentRound++;
         zombiesSpawnedThisRound = 0;
@@ -172,6 +175,11 @@ public class ZombieSpawning : MonoBehaviour
             StartBossRound();
             return;
         }
+        if(resetZombieSpawns)
+        {
+            maxZombieSpawnsThisRound = tempZombieSpawnsThisRound;
+            return;
+        }
         maxZombieSpawnsThisRound += numberOfZombiesIncrease;
         numberOfZombiesIncrease += increaser;
     }
@@ -179,6 +187,7 @@ public class ZombieSpawning : MonoBehaviour
     void StartBossRound()
     {
         isBossRound = true;
+        tempZombieSpawnsThisRound = maxZombieSpawnsThisRound;
         maxZombieSpawnsThisRound = zombiesSpawnedOnBossRoundPlusBoss;
         nextBossRound += Random.Range(nextBossRoundNumber - 1, nextBossRoundNumber + 1);
         Debug.Log("Next boss round is round " + nextBossRound);
