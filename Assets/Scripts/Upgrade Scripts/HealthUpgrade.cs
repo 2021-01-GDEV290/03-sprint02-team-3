@@ -36,6 +36,7 @@ public class HealthUpgrade : MonoBehaviour
                 bought = true;
                 playerScript.maxHealth = newHealth;
                 playerScript.health = newHealth;
+                playerScript.canRegen = false;
             }
         }
         else

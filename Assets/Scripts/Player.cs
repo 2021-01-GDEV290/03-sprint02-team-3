@@ -27,7 +27,7 @@ public class Player : MonoBehaviour
     public float timeBetweenRegens;
     public float timeBetweenHits;
 
-    bool canRegen;
+    public bool canRegen;
     bool canBeHit;
 
     [Header("Shooting")] // For all arrays, index 0 is pistol, 1 is AR, 2 is shotgun, and 3 is minigun
