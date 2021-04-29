@@ -50,14 +50,14 @@ public class SettingsMenu : MonoBehaviour
     public void SetMusicVolume()
     {
         float volume = sliders[0].value;
-        audioMixers[0].SetFloat("volume", Mathf.Log10(volume) * 20);
+        audioMixers[0].SetFloat("volume", (Mathf.Log10(volume) * 20) - 10);
         PlayerPrefs.SetFloat("MusicVolume", volume);
     }
 
     public void SetSoundVolume()
     {
         float volume = sliders[1].value;
-        audioMixers[1].SetFloat("volume", Mathf.Log10(volume) * 20);
+        audioMixers[1].SetFloat("volume", (Mathf.Log10(volume) * 20) - 10);
         PlayerPrefs.SetFloat("SoundVolume", volume);
     }
 
