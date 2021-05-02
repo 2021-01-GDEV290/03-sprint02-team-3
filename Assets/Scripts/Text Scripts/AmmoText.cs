@@ -15,7 +15,7 @@ public class AmmoText : MonoBehaviour
         switch (player.state)
         {
             case PlayerState.normal:
-                txt.text = "AMMO: " + player.currentAmmo + " / ∞";
+                txt.text = "AMMO: " + player.currentAmmo + " / --";
                 break;
             case PlayerState.assaultRifle:
                 txt.text = "AMMO: " + player.currentAmmo + " / " + player.remainingAmmo;
