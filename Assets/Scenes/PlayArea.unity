@@ -1520,7 +1520,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2005033090549062333, guid: f464b05dbbfd26747b509f2dc0629587, type: 3}
       propertyPath: pointsNeeded
-      value: 75
+      value: 25
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f464b05dbbfd26747b509f2dc0629587, type: 3}
@@ -4471,11 +4471,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 958083441270069695, guid: 15cb8e175f7c7a541bdf13d8d8e8940d, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -23.14892
+      value: 11.93
       objectReference: {fileID: 0}
     - target: {fileID: 958083441270069695, guid: 15cb8e175f7c7a541bdf13d8d8e8940d, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 14.506149
+      value: 4.22
       objectReference: {fileID: 0}
     - target: {fileID: 958083441270069695, guid: 15cb8e175f7c7a541bdf13d8d8e8940d, type: 3}
       propertyPath: m_LocalPosition.z
@@ -4511,7 +4511,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2507569169493293494, guid: 15cb8e175f7c7a541bdf13d8d8e8940d, type: 3}
       propertyPath: firstUpgradePrice
-      value: 250
+      value: 200
       objectReference: {fileID: 0}
     - target: {fileID: 2507569169493293494, guid: 15cb8e175f7c7a541bdf13d8d8e8940d, type: 3}
       propertyPath: thirdUpgradePrice
@@ -8977,7 +8977,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2005033090549062333, guid: f464b05dbbfd26747b509f2dc0629587, type: 3}
       propertyPath: pointsNeeded
-      value: 75
+      value: 50
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f464b05dbbfd26747b509f2dc0629587, type: 3}
@@ -9204,7 +9204,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1220633197
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9759,7 +9759,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5235748853375309836, guid: e9fe714fabfcbf746a82ed2a08e48612, type: 3}
       propertyPath: pointsNeeded
-      value: 200
+      value: 250
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e9fe714fabfcbf746a82ed2a08e48612, type: 3}
@@ -11101,11 +11101,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3602330942936902054, guid: dd3c2f12814a6fa40884b5b039afc3b5, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 11.963734
+      value: -23.73
       objectReference: {fileID: 0}
     - target: {fileID: 3602330942936902054, guid: dd3c2f12814a6fa40884b5b039afc3b5, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 4.1509943
+      value: 14.49
       objectReference: {fileID: 0}
     - target: {fileID: 3602330942936902054, guid: dd3c2f12814a6fa40884b5b039afc3b5, type: 3}
       propertyPath: m_LocalPosition.z
