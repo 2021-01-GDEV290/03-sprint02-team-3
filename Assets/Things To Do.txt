@@ -1,2 +1,6 @@
-1) Add sound
-2) Balance game
+1) Update Weapon Upgrade to account to extra ammo to weapon drops
+2) Update Weapon Upgrade to allow for constant buying to increase damage
+3) Update Health Upgrade with different tiers like the Weapon Upgrade (increased health regeneration rate)
+4) Update Speed Upgrade with different tiers like the Weapon Upgrade
+5) Fix boss zombie round not appearing on round 8 (Random.Range issue)
+6) Add fix for zombiePrefabInstances variable not updating correctly
