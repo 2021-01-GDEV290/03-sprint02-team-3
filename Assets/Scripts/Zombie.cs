@@ -135,6 +135,7 @@ public class Zombie : MonoBehaviour
             alreadyKilled = true;
             RandomDrop();
             Destroy(gameObject);
+            ZombieSpawning.zombiePrefabInstances--;
             return;
         }
         Player.points += pointsGivenOnHit;
