@@ -13,6 +13,7 @@ public class ZombieSpawning : MonoBehaviour
     public int increaser = 1; // The number to increase numberOfZombiesIncrease by each round
     public static int maxZombieSpawnsThisRound; // The number of zombies that can spawn on this round
     int tempZombieSpawnsThisRound; // For saving the amount of zombies that will spawn after a boss round
+    public int firstRoundToSpawnSpecials; // The first round where special zombies will spawn
 
     public int firstBossRoundNumber; // This is a random number from n-1 to n+1 (so if it is 5, the first boss
     //                            spawns on a random round from 4-6)
@@ -110,7 +111,7 @@ public class ZombieSpawning : MonoBehaviour
         float thisRandom = Random.Range(0, normalZombieSpawnChance + fastZombieSpawnChance
             + rangedZombieSpawnChance);
         GameObject zombie;
-        if (thisRandom <= tempNormalZombieSpawnChance)
+        if (thisRandom <= tempNormalZombieSpawnChance || currentRound < firstRoundToSpawnSpecials)
         {
             zombie = Instantiate(zombiePrefabs[0], randomSpawn.position + new Vector3(0, 0, -10),
                 randomSpawn.rotation);
