@@ -4512,6 +4512,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2507569169493293494, guid: 15cb8e175f7c7a541bdf13d8d8e8940d, type: 3}
+      propertyPath: priceIncreaser
+      value: 250
+      objectReference: {fileID: 0}
+    - target: {fileID: 2507569169493293494, guid: 15cb8e175f7c7a541bdf13d8d8e8940d, type: 3}
       propertyPath: firstUpgradePrice
       value: 200
       objectReference: {fileID: 0}
@@ -4522,6 +4526,10 @@ PrefabInstance:
     - target: {fileID: 2507569169493293494, guid: 15cb8e175f7c7a541bdf13d8d8e8940d, type: 3}
       propertyPath: secondUpgradePrice
       value: 300
+      objectReference: {fileID: 0}
+    - target: {fileID: 2507569169493293494, guid: 15cb8e175f7c7a541bdf13d8d8e8940d, type: 3}
+      propertyPath: fourthPlusUpgradePrice
+      value: 750
       objectReference: {fileID: 0}
     - target: {fileID: 2507569169493293494, guid: 15cb8e175f7c7a541bdf13d8d8e8940d, type: 3}
       propertyPath: thirdUpgradeMinigunAmmo

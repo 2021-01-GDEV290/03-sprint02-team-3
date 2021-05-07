@@ -10,12 +10,14 @@ public class WeaponUpgradeText : MonoBehaviour
     int firstPointsNeeded;
     int secondPointsNeeded;
     int thirdPointsNeeded;
+    int fourthPlusPointsNeeded;
 
     private void Start()
     {
         firstPointsNeeded = weaponUpgrade.gameObject.GetComponent<WeaponUpgrade>().firstUpgradePrice;
         secondPointsNeeded = weaponUpgrade.gameObject.GetComponent<WeaponUpgrade>().secondUpgradePrice;
         thirdPointsNeeded = weaponUpgrade.gameObject.GetComponent<WeaponUpgrade>().thirdUpgradePrice;
+        fourthPlusPointsNeeded = weaponUpgrade.gameObject.GetComponent<WeaponUpgrade>().fourthPlusUpgradePrice;
     }
 
     private void Update()
@@ -49,7 +51,13 @@ public class WeaponUpgradeText : MonoBehaviour
             }
         } else
         {
-            Destroy(this.gameObject);
+            if (weaponUpgrade.GetComponent<WeaponUpgrade>().canBeBought)
+            {
+                GetComponent<Text>().text = "PRESS TO E \nINCREASE DAMAGE\n(" + fourthPlusPointsNeeded + " POINTS)";
+            } else
+            {
+                GetComponent<Text>().text = "";
+            }
         }
     }
 }

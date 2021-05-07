@@ -7,6 +7,8 @@ public class WeaponUpgrade : MonoBehaviour
     public int firstUpgradePrice;
     public int secondUpgradePrice;
     public int thirdUpgradePrice;
+    public int fourthPlusUpgradePrice;
+    public int priceIncreaser;
     public float distance;
 
     public int firstUpgradeDamage;
@@ -29,6 +31,7 @@ public class WeaponUpgrade : MonoBehaviour
         bullet = GameObject.Find("Bullet").GetComponent<Bullet>();
         canBeBought = false;
         currentBuyableUpgrade = 1;
+        fourthPlusUpgradePrice = thirdUpgradePrice + priceIncreaser;
     }
 
     private void Update()
@@ -37,7 +40,7 @@ public class WeaponUpgrade : MonoBehaviour
         {
             return;
         }
-        if ((player.transform.position - this.transform.position).magnitude < distance)
+        if ((player.transform.position - transform.position).magnitude < distance)
         {
             canBeBought = true;
             if(Input.GetKeyDown(KeyCode.E)) {
@@ -97,9 +100,12 @@ public class WeaponUpgrade : MonoBehaviour
                             playerScript.currentAmmo = playerScript.maxAmmo[3];
                             break;
                     }
-                } else
+                } else if(currentBuyableUpgrade > 3 && Player.points >= fourthPlusUpgradePrice)
                 {
-                    return;
+                    Player.points -= fourthPlusUpgradePrice;
+                    currentBuyableUpgrade++;
+                    bullet.damage++;
+                    fourthPlusUpgradePrice += priceIncreaser;
                 }
             }
         }
