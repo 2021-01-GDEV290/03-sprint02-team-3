@@ -12,6 +12,9 @@ public class WeaponDrop : MonoBehaviour
     public float slowFlashTime; // When does the animator trigger the slow flash animation
     public float fastFlashTime; // When does the animator trigger the fast flash animation
 
+    public static int ARStockAmmoMultiplier = 2;
+    public static int shotgunStockAmmoMultiplier = 3;
+
     private void Awake()
     {
         InvokeRepeating("WaitUntilDestroy", 1f, 1f);
@@ -28,13 +31,13 @@ public class WeaponDrop : MonoBehaviour
                     player.state = PlayerState.assaultRifle;
                     player.animator.SetInteger("Current State", 1);
                     player.currentAmmo = player.maxAmmo[1];
-                    player.remainingAmmo = player.maxAmmo[1] * 2;
+                    player.remainingAmmo = player.maxAmmo[1] * ARStockAmmoMultiplier;
                     break;
                 case "Shotgun":
                     player.state = PlayerState.shotgun;
                     player.animator.SetInteger("Current State", 2);
                     player.currentAmmo = player.maxAmmo[2];
-                    player.remainingAmmo = player.maxAmmo[2] * 3;
+                    player.remainingAmmo = player.maxAmmo[2] * shotgunStockAmmoMultiplier;
                     break;
                 case "Minigun":
                     player.state = PlayerState.minigun;

@@ -12,7 +12,9 @@ public class WeaponUpgrade : MonoBehaviour
     public int firstUpgradeDamage;
     public int thirdUpgradeDamage;
     public int secondUpgradeAmmo;
+    public int secondUpgradeMinigunAmmo;
     public int thirdUpgradeAmmo;
+    public int thirdUpgradeMinigunAmmo;
 
     public bool canBeBought;
     public int currentBuyableUpgrade;
@@ -42,16 +44,32 @@ public class WeaponUpgrade : MonoBehaviour
                 if (currentBuyableUpgrade == 1 && Player.points >= firstUpgradePrice)
                 {
                     Player.points -= firstUpgradePrice;
-                    currentBuyableUpgrade = 2;
+                    currentBuyableUpgrade++;
                     bullet.damage = firstUpgradeDamage;
                 } else if(currentBuyableUpgrade == 2 && Player.points >= secondUpgradePrice)
                 {
                     Player.points -= secondUpgradePrice;
-                    currentBuyableUpgrade = 3;
+                    currentBuyableUpgrade++;
                     playerScript.maxAmmo[0] = secondUpgradeAmmo;
-                    if(playerScript.state == PlayerState.normal)
+                    WeaponDrop.ARStockAmmoMultiplier++;
+                    WeaponDrop.shotgunStockAmmoMultiplier++;
+                    playerScript.maxAmmo[3] = secondUpgradeMinigunAmmo;
+                    switch (playerScript.state)
                     {
-                        playerScript.currentAmmo = secondUpgradeAmmo;
+                        case PlayerState.normal:
+                            playerScript.currentAmmo = secondUpgradeAmmo;
+                            break;
+                        case PlayerState.assaultRifle:
+                            playerScript.currentAmmo = playerScript.maxAmmo[1];
+                            playerScript.remainingAmmo = playerScript.maxAmmo[1] * WeaponDrop.ARStockAmmoMultiplier;
+                            break;
+                        case PlayerState.shotgun:
+                            playerScript.currentAmmo = playerScript.maxAmmo[2];
+                            playerScript.remainingAmmo = playerScript.maxAmmo[2] * WeaponDrop.shotgunStockAmmoMultiplier;
+                            break;
+                        case PlayerState.minigun:
+                            playerScript.currentAmmo = playerScript.maxAmmo[3];
+                            break;
                     }
                 } else if(currentBuyableUpgrade == 3 && Player.points >= thirdUpgradePrice)
                 {
@@ -59,9 +77,25 @@ public class WeaponUpgrade : MonoBehaviour
                     currentBuyableUpgrade = 4;
                     bullet.damage = thirdUpgradeDamage;
                     playerScript.maxAmmo[0] = thirdUpgradeAmmo;
-                    if (playerScript.state == PlayerState.normal)
+                    WeaponDrop.ARStockAmmoMultiplier++;
+                    WeaponDrop.shotgunStockAmmoMultiplier++;
+                    playerScript.maxAmmo[3] = thirdUpgradeMinigunAmmo;
+                    switch (playerScript.state)
                     {
-                        playerScript.currentAmmo = thirdUpgradeAmmo;
+                        case PlayerState.normal:
+                            playerScript.currentAmmo = secondUpgradeAmmo;
+                            break;
+                        case PlayerState.assaultRifle:
+                            playerScript.currentAmmo = playerScript.maxAmmo[1];
+                            playerScript.remainingAmmo = playerScript.maxAmmo[1] * WeaponDrop.ARStockAmmoMultiplier;
+                            break;
+                        case PlayerState.shotgun:
+                            playerScript.currentAmmo = playerScript.maxAmmo[2];
+                            playerScript.remainingAmmo = playerScript.maxAmmo[2] * WeaponDrop.shotgunStockAmmoMultiplier;
+                            break;
+                        case PlayerState.minigun:
+                            playerScript.currentAmmo = playerScript.maxAmmo[3];
+                            break;
                     }
                 } else
                 {

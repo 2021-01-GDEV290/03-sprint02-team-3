@@ -4523,6 +4523,14 @@ PrefabInstance:
       propertyPath: secondUpgradePrice
       value: 300
       objectReference: {fileID: 0}
+    - target: {fileID: 2507569169493293494, guid: 15cb8e175f7c7a541bdf13d8d8e8940d, type: 3}
+      propertyPath: thirdUpgradeMinigunAmmo
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 2507569169493293494, guid: 15cb8e175f7c7a541bdf13d8d8e8940d, type: 3}
+      propertyPath: secondUpgradeMinigunAmmo
+      value: 150
+      objectReference: {fileID: 0}
     - target: {fileID: 8255399909252980106, guid: 15cb8e175f7c7a541bdf13d8d8e8940d, type: 3}
       propertyPath: m_Name
       value: Weapon Upgrade

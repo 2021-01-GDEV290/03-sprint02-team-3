@@ -56,7 +56,7 @@ public class ZombieSpawning : MonoBehaviour
         maxZombieSpawnsThisRound = numberOfZombiesRoundOne;
         tempNormalZombieSpawnChance = normalZombieSpawnChance;
         tempFastZombieSpawnChance = tempNormalZombieSpawnChance + fastZombieSpawnChance;
-        nextBossRound = Random.Range(firstBossRoundNumber - 1, firstBossRoundNumber + 1);
+        nextBossRound = Random.Range(firstBossRoundNumber - 1, firstBossRoundNumber + 2);
         Debug.Log("First boss round is round " + nextBossRound);
         isBossRound = false;
         currentRoundHealth = 0;
@@ -163,6 +163,7 @@ public class ZombieSpawning : MonoBehaviour
             zombieScript.health += currentRoundHealth;
         }
         zombiesSpawnedThisRound++;
+        zombiePrefabInstances++;
         canSpawn = true;
     }
 
@@ -178,6 +179,7 @@ public class ZombieSpawning : MonoBehaviour
         currentRound++;
         zombiesSpawnedThisRound = 0;
         zombiesKilledThisRound = 0;
+        zombiePrefabInstances = 0;
         roundDelayBegun = false;
         if (nextBossRound == currentRound)
         {
@@ -198,7 +200,7 @@ public class ZombieSpawning : MonoBehaviour
         isBossRound = true;
         tempZombieSpawnsThisRound = maxZombieSpawnsThisRound;
         maxZombieSpawnsThisRound = zombiesSpawnedOnBossRoundPlusBoss;
-        nextBossRound += Random.Range(nextBossRoundNumber - 1, nextBossRoundNumber + 1);
+        nextBossRound += Random.Range(nextBossRoundNumber - 1, nextBossRoundNumber + 2);
         Debug.Log("Next boss round is round " + nextBossRound);
     }
 

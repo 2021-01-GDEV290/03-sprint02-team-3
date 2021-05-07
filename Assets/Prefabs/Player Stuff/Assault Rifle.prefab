@@ -128,6 +128,8 @@ MonoBehaviour:
   timeUntilDestroy: 20
   slowFlashTime: 7.5
   fastFlashTime: 2.5
+  ARStockAmmoMultiplier: 2
+  shotgunStockAmmoMultiplier: 0
 --- !u!95 &-7267551563857932697
 Animator:
   serializedVersion: 3
