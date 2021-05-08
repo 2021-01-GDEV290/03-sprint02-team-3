@@ -81,16 +81,17 @@ public class Player : MonoBehaviour
         mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
 
         // Shooting
+        
         switch (state)
         {
             case PlayerState.normal:
-                if (Input.GetButtonDown("Fire1") && canShoot && !reloading && currentAmmo > 0 && !(PauseMenu.GameIsPaused))
+                if (Input.GetButton("Fire1") && canShoot && !reloading && currentAmmo > 0 && !(PauseMenu.GameIsPaused))
                 {
                     animator.SetBool("Shoot", true);
                     Shoot(0);
                     shotSounds[0].Play();
                 }
-                if (Input.GetKeyDown(KeyCode.R) && !reloading && currentAmmo != maxAmmo[0])
+                if ((Input.GetKeyDown(KeyCode.R) && !reloading && currentAmmo != maxAmmo[0]) || (currentAmmo <= 0 && !reloading))
                 {
                     reloading = true;
                     canShoot = false;
@@ -112,7 +113,7 @@ public class Player : MonoBehaviour
                     Shoot(1);
                     shotSounds[1].Play();
                 }
-                if (Input.GetKeyDown(KeyCode.R) && !reloading && currentAmmo != maxAmmo[1])
+                if ((Input.GetKeyDown(KeyCode.R) && !reloading && currentAmmo != maxAmmo[1]) || (currentAmmo <= 0 && !reloading))
                 {
                     reloading = true;
                     canShoot = false;
@@ -134,7 +135,7 @@ public class Player : MonoBehaviour
                     Shoot(2);
                     shotSounds[2].Play();
                 }
-                if (Input.GetKeyDown(KeyCode.R) && !reloading && currentAmmo != maxAmmo[2])
+                if ((Input.GetKeyDown(KeyCode.R) && !reloading && currentAmmo != maxAmmo[2]) || (currentAmmo <= 0 && !reloading))
                 {
                     reloading = true;
                     canShoot = false;
