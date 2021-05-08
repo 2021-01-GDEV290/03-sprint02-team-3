@@ -9779,6 +9779,30 @@ PrefabInstance:
       propertyPath: pointsNeeded
       value: 250
       objectReference: {fileID: 0}
+    - target: {fileID: 5235748853375309836, guid: e9fe714fabfcbf746a82ed2a08e48612, type: 3}
+      propertyPath: firstUpgradePrice
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5235748853375309836, guid: e9fe714fabfcbf746a82ed2a08e48612, type: 3}
+      propertyPath: newRegenStartTime
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5235748853375309836, guid: e9fe714fabfcbf746a82ed2a08e48612, type: 3}
+      propertyPath: thirdUpgradePrice
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 5235748853375309836, guid: e9fe714fabfcbf746a82ed2a08e48612, type: 3}
+      propertyPath: firstUpgradeHealth
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5235748853375309836, guid: e9fe714fabfcbf746a82ed2a08e48612, type: 3}
+      propertyPath: secondUpgradePrice
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5235748853375309836, guid: e9fe714fabfcbf746a82ed2a08e48612, type: 3}
+      propertyPath: newTimeBetweenRegens
+      value: 0.5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e9fe714fabfcbf746a82ed2a08e48612, type: 3}
 --- !u!1 &1269783297

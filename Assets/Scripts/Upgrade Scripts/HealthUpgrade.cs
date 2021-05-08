@@ -4,12 +4,17 @@ using UnityEngine;
 
 public class HealthUpgrade : MonoBehaviour
 {
-    public int pointsNeeded;
+    public int firstUpgradePrice;
+    public int secondUpgradePrice;
+    public int thirdUpgradePrice;
     public float distance;
-    public bool canBeBought;
-    public bool bought;
-    public int newHealth;
 
+    public int firstUpgradeHealth;
+    public float newRegenStartTime;
+    public float newTimeBetweenRegens;
+
+    public bool canBeBought;
+    public int currentBuyableUpgrade;
     GameObject player;
     Player playerScript;
 
@@ -18,7 +23,7 @@ public class HealthUpgrade : MonoBehaviour
         player = GameObject.Find("Player");
         playerScript = player.GetComponent<Player>();
         canBeBought = false;
-        bought = false;
+        currentBuyableUpgrade = 1;
     }
 
     private void Update()
@@ -30,13 +35,32 @@ public class HealthUpgrade : MonoBehaviour
         if ((player.transform.position - transform.position).magnitude < distance)
         {
             canBeBought = true;
-            if (Input.GetKeyDown(KeyCode.E) && Player.points >= pointsNeeded && !bought)
+            if (Input.GetKeyDown(KeyCode.E))
             {
-                Player.points -= pointsNeeded;
-                bought = true;
-                playerScript.maxHealth = newHealth;
-                playerScript.health = newHealth;
-                playerScript.canRegen = false;
+                if (currentBuyableUpgrade == 1 && Player.points >= firstUpgradePrice)
+                {
+                    Player.points -= firstUpgradePrice;
+                    currentBuyableUpgrade++;
+                    playerScript.maxHealth = firstUpgradeHealth;
+                    playerScript.health = firstUpgradeHealth;
+                }
+                else if (currentBuyableUpgrade == 2 && Player.points >= secondUpgradePrice)
+                {
+                    Player.points -= secondUpgradePrice;
+                    currentBuyableUpgrade++;
+                    playerScript.timeBeforeRegenStart = newRegenStartTime;
+                    playerScript.timeBetweenRegens = newTimeBetweenRegens;
+                }
+                else if (currentBuyableUpgrade == 3 && Player.points >= thirdUpgradePrice)
+                {
+                    Player.points -= thirdUpgradePrice;
+                    currentBuyableUpgrade++;
+                    playerScript.damageZombiesOnTouch = true;
+                }
+                else 
+                {
+                    return;
+                }
             }
         }
         else

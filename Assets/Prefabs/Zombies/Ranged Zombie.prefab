@@ -53,7 +53,7 @@ GameObject:
   - component: {fileID: -929286690951594019}
   m_Layer: 13
   m_Name: Ranged Zombie
-  m_TagString: Zombie
+  m_TagString: Ranged Zombie
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

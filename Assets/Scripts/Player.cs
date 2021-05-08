@@ -27,8 +27,11 @@ public class Player : MonoBehaviour
     public float timeBetweenRegens;
     public float timeBetweenHits;
 
+    public bool damageZombiesOnTouch;
+
     public bool canRegen;
     bool canBeHit;
+    Collision2D currentCollision;
 
     [Header("Shooting")] // For all arrays, index 0 is pistol, 1 is AR, 2 is shotgun, and 3 is minigun
     public PlayerState state = PlayerState.normal;
@@ -181,6 +184,16 @@ public class Player : MonoBehaviour
         rb.rotation = Mathf.Atan2(lookDir.y, lookDir.x) * Mathf.Rad2Deg - 90f;
     }
 
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        currentCollision = collision;
+    }
+
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        currentCollision = null;
+    }
+
     public void Damage(int damage)
     {
         if(!canBeHit)
@@ -191,6 +204,17 @@ public class Player : MonoBehaviour
         canRegen = false;
         CancelInvoke("Regen");
         health = health - damage;
+        if (damageZombiesOnTouch && currentCollision != null)
+        {
+            if(currentCollision.gameObject.tag == "Zombie" || currentCollision.gameObject.tag
+                == "Fast Zombie" || currentCollision.gameObject.tag == "Boss Zombie")
+            {
+                currentCollision.gameObject.GetComponent<Zombie>().Damage(1);
+            } else if(currentCollision.gameObject.tag == "Ranged Zombie")
+            {
+                currentCollision.gameObject.GetComponent<RangedZombie>().Damage(1);
+            }
+        }
         canBeHit = false;
         ScoreboardTracker.damageTaken += damage;
         if (health <= 0)

@@ -26,28 +26,28 @@ public class WeaponUpgradeText : MonoBehaviour
         {
             if (weaponUpgrade.GetComponent<WeaponUpgrade>().canBeBought)
             {
-                this.GetComponent<Text>().text = "PRESS E TO \nINCREASE DAMAGE\n(" + firstPointsNeeded + " POINTS)";
+                GetComponent<Text>().text = "PRESS E TO \nINCREASE DAMAGE\n(" + firstPointsNeeded + " POINTS)";
             } else
             {
-                this.GetComponent<Text>().text = "";
+                GetComponent<Text>().text = "";
             }
         } else if(weaponUpgrade.GetComponent<WeaponUpgrade>().currentBuyableUpgrade == 2)
         {
             if (weaponUpgrade.GetComponent<WeaponUpgrade>().canBeBought)
             {
-                this.GetComponent<Text>().text = "PRESS E TO \nINCREASE AMMO\n(" + secondPointsNeeded + " POINTS)";
+                GetComponent<Text>().text = "PRESS E TO \nINCREASE AMMO\n(" + secondPointsNeeded + " POINTS)";
             } else
             {
-                this.GetComponent<Text>().text = "";
+                GetComponent<Text>().text = "";
             }
         } else if(weaponUpgrade.GetComponent<WeaponUpgrade>().currentBuyableUpgrade == 3)
         {
             if (weaponUpgrade.GetComponent<WeaponUpgrade>().canBeBought)
             {
-                this.GetComponent<Text>().text = "PRESS TO E \nINCREASE DAMAGE & AMMO\n(" + thirdPointsNeeded + " POINTS)";
+                GetComponent<Text>().text = "PRESS TO E \nINCREASE DAMAGE & AMMO\n(" + thirdPointsNeeded + " POINTS)";
             } else
             {
-                this.GetComponent<Text>().text = "";
+                GetComponent<Text>().text = "";
             }
         } else
         {
