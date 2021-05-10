@@ -38,7 +38,7 @@ public class SpeedUpgrade : MonoBehaviour
             {
                 if (currentBuyableUpgrade == 1 && Player.points >= firstUpgradePrice)
                 {
-                    Player.points -= secondUpgradePrice;
+                    Player.points -= firstUpgradePrice;
                     currentBuyableUpgrade++;
                     playerScript.moveSpeed = firstUpgradeSpeed;
                 }
