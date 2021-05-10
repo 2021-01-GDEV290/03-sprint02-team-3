@@ -1,6 +1,6 @@
-
-
-
+Weapon - 200, 300, 500, 750, 250
+Speed - 200, 350, 500
+Health - 250, 300, 350
 
 
 
@@ -16,5 +16,5 @@
 	----------------Tier 3 - Increased Speed (500 Points)
 --------------------5) Fix boss zombie round not appearing on round 8 (Random.Range issue)
 --------------------6) Add fix for zombiePrefabInstances variable not updating correctly
-7) Update UI to show what perks the player has
-8) Add volume sliders in the in-game pause menu
+--------------------7) Update UI to show what perks the player has
+--------------------8) Add volume sliders in the in-game pause menu

@@ -2,14 +2,25 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.Audio;
+using UnityEngine.UI;
 
 public class PauseMenu : MonoBehaviour
 {
+    public AudioMixer[] audioMixers; // 0 is music, 1 is sound
+    public Slider[] sliders;
+
     public static bool GameIsPaused = false;
 
     public GameObject pauseMenuUI;
     public Animator trasition;
     public float trasitionTime;
+
+    private void Start()
+    {
+        sliders[0].value = PlayerPrefs.GetFloat("MusicVolume", 0.75f);
+        sliders[1].value = PlayerPrefs.GetFloat("SoundVolume", 0.75f);
+    }
 
     // Update is called once per frame
     void Update()
@@ -59,6 +70,20 @@ public class PauseMenu : MonoBehaviour
         GameIsPaused = false;
         ClearGameProgress();
         SceneManager.LoadScene("TitleScreen");
+    }
+
+    public void SetMusicVolume()
+    {
+        float volume = sliders[0].value;
+        audioMixers[0].SetFloat("volume", (Mathf.Log10(volume) * 20) - 10);
+        PlayerPrefs.SetFloat("MusicVolume", volume);
+    }
+
+    public void SetSoundVolume()
+    {
+        float volume = sliders[1].value;
+        audioMixers[1].SetFloat("volume", (Mathf.Log10(volume) * 20) - 10);
+        PlayerPrefs.SetFloat("SoundVolume", volume);
     }
 
     void ClearGameProgress()
