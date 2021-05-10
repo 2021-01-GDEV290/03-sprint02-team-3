@@ -6,54 +6,51 @@ using UnityEngine.UI;
 public class WeaponUpgradeText : MonoBehaviour
 {
     public GameObject weaponUpgrade;
-
-    int firstPointsNeeded;
-    int secondPointsNeeded;
-    int thirdPointsNeeded;
-    int fourthPlusPointsNeeded;
+    WeaponUpgrade script;
 
     private void Start()
     {
-        firstPointsNeeded = weaponUpgrade.gameObject.GetComponent<WeaponUpgrade>().firstUpgradePrice;
-        secondPointsNeeded = weaponUpgrade.gameObject.GetComponent<WeaponUpgrade>().secondUpgradePrice;
-        thirdPointsNeeded = weaponUpgrade.gameObject.GetComponent<WeaponUpgrade>().thirdUpgradePrice;
-        fourthPlusPointsNeeded = weaponUpgrade.gameObject.GetComponent<WeaponUpgrade>().fourthPlusUpgradePrice;
+        script = weaponUpgrade.GetComponent<WeaponUpgrade>();
     }
 
     private void Update()
     {
-        if(weaponUpgrade.GetComponent<WeaponUpgrade>().currentBuyableUpgrade == 1)
+        if(script.currentBuyableUpgrade == 1)
         {
-            if (weaponUpgrade.GetComponent<WeaponUpgrade>().canBeBought)
+            if (script.canBeBought)
             {
-                GetComponent<Text>().text = "PRESS E TO \nINCREASE DAMAGE\n(" + firstPointsNeeded + " POINTS)";
+                GetComponent<Text>().text = "PRESS E TO \nINCREASE DAMAGE\n(" + 
+                    script.firstUpgradePrice + " POINTS)";
             } else
             {
                 GetComponent<Text>().text = "";
             }
-        } else if(weaponUpgrade.GetComponent<WeaponUpgrade>().currentBuyableUpgrade == 2)
+        } else if(script.currentBuyableUpgrade == 2)
         {
-            if (weaponUpgrade.GetComponent<WeaponUpgrade>().canBeBought)
+            if (script.canBeBought)
             {
-                GetComponent<Text>().text = "PRESS E TO \nINCREASE AMMO\n(" + secondPointsNeeded + " POINTS)";
+                GetComponent<Text>().text = "PRESS E TO \nINCREASE AMMO\n(" +
+                    script.secondUpgradePrice + " POINTS)";
             } else
             {
                 GetComponent<Text>().text = "";
             }
-        } else if(weaponUpgrade.GetComponent<WeaponUpgrade>().currentBuyableUpgrade == 3)
+        } else if(script.currentBuyableUpgrade == 3)
         {
-            if (weaponUpgrade.GetComponent<WeaponUpgrade>().canBeBought)
+            if (script.canBeBought)
             {
-                GetComponent<Text>().text = "PRESS TO E \nINCREASE DAMAGE & AMMO\n(" + thirdPointsNeeded + " POINTS)";
+                GetComponent<Text>().text = "PRESS TO E \nINCREASE DAMAGE & AMMO\n(" +
+                    script.thirdUpgradePrice + " POINTS)";
             } else
             {
                 GetComponent<Text>().text = "";
             }
         } else
         {
-            if (weaponUpgrade.GetComponent<WeaponUpgrade>().canBeBought)
+            if (script.canBeBought)
             {
-                GetComponent<Text>().text = "PRESS TO E \nINCREASE DAMAGE\n(" + fourthPlusPointsNeeded + " POINTS)";
+                GetComponent<Text>().text = "PRESS TO E \nINCREASE DAMAGE\n(" +
+                    script.fourthPlusUpgradePrice + " POINTS)";
             } else
             {
                 GetComponent<Text>().text = "";

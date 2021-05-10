@@ -6,45 +6,43 @@ using UnityEngine.UI;
 public class HealthUpgradeText : MonoBehaviour
 {
     public GameObject healthUpgrade;
-
-    int firstPointsNeeded;
-    int secondPointsNeeded;
-    int thirdPointsNeeded;
+    HealthUpgrade script;
 
     private void Start()
     {
-        firstPointsNeeded = healthUpgrade.gameObject.GetComponent<HealthUpgrade>().firstUpgradePrice;
-        secondPointsNeeded = healthUpgrade.gameObject.GetComponent<HealthUpgrade>().secondUpgradePrice;
-        thirdPointsNeeded = healthUpgrade.gameObject.GetComponent<HealthUpgrade>().thirdUpgradePrice;
+        script = healthUpgrade.GetComponent<HealthUpgrade>();
     }
 
     private void Update()
     {
-        if (healthUpgrade.GetComponent<HealthUpgrade>().currentBuyableUpgrade == 1)
+        if (script.currentBuyableUpgrade == 1)
         {
-            if (healthUpgrade.GetComponent<HealthUpgrade>().canBeBought)
+            if (script.canBeBought)
             {
-                GetComponent<Text>().text = "PRESS E TO \nINCREASE HEALTH\n(" + firstPointsNeeded + " POINTS)";
+                GetComponent<Text>().text = "PRESS E TO \nINCREASE HEALTH\n(" + 
+                    script.firstUpgradePrice + " POINTS)";
             }
             else
             {
                 GetComponent<Text>().text = "";
             }
-        } else if(healthUpgrade.GetComponent<HealthUpgrade>().currentBuyableUpgrade == 2)
+        } else if(script.currentBuyableUpgrade == 2)
         {
-            if (healthUpgrade.GetComponent<HealthUpgrade>().canBeBought)
+            if (script.canBeBought)
             {
-                GetComponent<Text>().text = "PRESS E TO \nINCREASE HEALTH REGENERATION\n(" + secondPointsNeeded + " POINTS)";
+                GetComponent<Text>().text = "PRESS E TO \nINCREASE HEALTH REGENERATION\n(" 
+                    + script.secondUpgradePrice + " POINTS)";
             }
             else
             {
                 GetComponent<Text>().text = "";
             }
-        } else if(healthUpgrade.GetComponent<HealthUpgrade>().currentBuyableUpgrade == 3)
+        } else if(script.currentBuyableUpgrade == 3)
         {
-            if (healthUpgrade.GetComponent<HealthUpgrade>().canBeBought)
+            if (script.canBeBought)
             {
-                GetComponent<Text>().text = "PRESS E TO \nDAMAGE ZOMBIES AFTER THEY DAMAGE YOU\n(" + thirdPointsNeeded + " POINTS)";
+                GetComponent<Text>().text = "PRESS E TO \nDAMAGE ZOMBIES AFTER THEY DAMAGE YOU\n(" 
+                    + script.thirdUpgradePrice + " POINTS)";
             }
             else
             {

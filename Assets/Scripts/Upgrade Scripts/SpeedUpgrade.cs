@@ -4,12 +4,16 @@ using UnityEngine;
 
 public class SpeedUpgrade : MonoBehaviour
 {
-    public int pointsNeeded;
+    public int firstUpgradePrice;
+    public int secondUpgradePrice;
+    public int thirdUpgradePrice;
     public float distance;
-    public bool canBeBought;
-    public bool bought;
-    public float newSpeed;
 
+    public float firstUpgradeSpeed;
+    public float thirdUpgradeSpeed;
+
+    public bool canBeBought;
+    public int currentBuyableUpgrade;
     GameObject player;
     Player playerScript;
 
@@ -18,23 +22,42 @@ public class SpeedUpgrade : MonoBehaviour
         player = GameObject.Find("Player");
         playerScript = player.GetComponent<Player>();
         canBeBought = false;
-        bought = false;
+        currentBuyableUpgrade = 1;
     }
 
     private void Update()
     {
-        if(player == null)
+        if (player == null)
         {
             return;
         }
-        if ((player.transform.position - this.transform.position).magnitude < distance)
+        if ((player.transform.position - transform.position).magnitude < distance)
         {
             canBeBought = true;
-            if (Input.GetKeyDown(KeyCode.E) && Player.points >= pointsNeeded && !bought)
+            if (Input.GetKeyDown(KeyCode.E))
             {
-                Player.points -= pointsNeeded;
-                bought = true;
-                playerScript.moveSpeed = newSpeed;
+                if (currentBuyableUpgrade == 1 && Player.points >= firstUpgradePrice)
+                {
+                    Player.points -= secondUpgradePrice;
+                    currentBuyableUpgrade++;
+                    playerScript.moveSpeed = firstUpgradeSpeed;
+                }
+                else if (currentBuyableUpgrade == 2 && Player.points >= secondUpgradePrice)
+                {
+                    Player.points -= secondUpgradePrice;
+                    currentBuyableUpgrade++;
+                    playerScript.dodge = true;
+                }
+                else if (currentBuyableUpgrade == 3 && Player.points >= thirdUpgradePrice)
+                {
+                    Player.points -= thirdUpgradePrice;
+                    currentBuyableUpgrade++;
+                    playerScript.moveSpeed = thirdUpgradeSpeed;
+                }
+                else
+                {
+                    return;
+                }
             }
         }
         else

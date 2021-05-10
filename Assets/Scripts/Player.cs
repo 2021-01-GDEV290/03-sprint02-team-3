@@ -20,6 +20,9 @@ public class Player : MonoBehaviour
     private Rigidbody2D rb;
     private Vector2 mousePos;
 
+    public bool dodge;
+    public float dodgeChance;
+
     [Header("Health Tracker")]
     public int maxHealth;
     public int health;
@@ -65,6 +68,7 @@ public class Player : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         xInput = Input.GetAxisRaw("Horizontal");
         yInput = Input.GetAxisRaw("Vertical");
+        dodge = false;
 
         // Shooting
         currentAmmo = maxAmmo[0];
@@ -199,6 +203,13 @@ public class Player : MonoBehaviour
         if(!canBeHit)
         {
             return;
+        }
+        if(dodge)
+        {
+            if (Random.Range(0, 100) <= dodgeChance)
+            {
+                return;
+            }
         }
         grunts[Random.Range(0, grunts.Length)].Play();
         canRegen = false;

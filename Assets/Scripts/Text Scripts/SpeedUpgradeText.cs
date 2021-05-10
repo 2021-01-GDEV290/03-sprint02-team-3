@@ -6,23 +6,54 @@ using UnityEngine.UI;
 public class SpeedUpgradeText : MonoBehaviour
 {
     public GameObject speedUpgrade;
-    int pointsNeeded;
+    SpeedUpgrade script;
 
     private void Start()
     {
-        pointsNeeded = speedUpgrade.gameObject.GetComponent<SpeedUpgrade>().pointsNeeded;
+        script = speedUpgrade.GetComponent<SpeedUpgrade>();
     }
 
     private void Update()
     {
-        if (speedUpgrade.GetComponent<SpeedUpgrade>().canBeBought)
+        if (script.currentBuyableUpgrade == 1)
         {
-            this.GetComponent<Text>().text = "PRESS E TO \nINCREASE SPEED\n(" + pointsNeeded + " POINTS)";
+            if (script.canBeBought)
+            {
+                GetComponent<Text>().text = "PRESS E TO \nINCREASE SPEED\n(" + 
+                    script.firstUpgradePrice + " POINTS)";
+            }
+            else
+            {
+                GetComponent<Text>().text = "";
+            }
+        }
+        else if (script.currentBuyableUpgrade == 2)
+        {
+            if (script.canBeBought)
+            {
+                GetComponent<Text>().text = "PRESS E FOR A \nCHANCE TO TAKE NO DAMAGE ON A HIT\n(" + 
+                    script.secondUpgradePrice + " POINTS)";
+            }
+            else
+            {
+                GetComponent<Text>().text = "";
+            }
+        }
+        else if (script.currentBuyableUpgrade == 3)
+        {
+            if (script.canBeBought)
+            {
+                GetComponent<Text>().text = "PRESS E TO \nINCREASE SPEED\n(" 
+                    + script.thirdUpgradePrice + " POINTS)";
+            }
+            else
+            {
+                GetComponent<Text>().text = "";
+            }
         }
         else
         {
-            this.GetComponent<Text>().text = "";
+            Destroy(gameObject);
         }
-        if (speedUpgrade.GetComponent<SpeedUpgrade>().bought) Destroy(this.gameObject);
     }
 }
