@@ -120,7 +120,7 @@ public class Player : MonoBehaviour
                     Shoot(1);
                     shotSounds[1].Play();
                 }
-                if ((Input.GetKeyDown(KeyCode.R) && !reloading && currentAmmo != maxAmmo[1]) || (currentAmmo <= 0 && !reloading))
+                if ((Input.GetKeyDown(KeyCode.R) && !reloading && currentAmmo != maxAmmo[1]) || (currentAmmo <= 0 && !reloading && remainingAmmo > 0))
                 {
                     reloading = true;
                     canShoot = false;
@@ -142,7 +142,7 @@ public class Player : MonoBehaviour
                     Shoot(2);
                     shotSounds[2].Play();
                 }
-                if ((Input.GetKeyDown(KeyCode.R) && !reloading && currentAmmo != maxAmmo[2]) || (currentAmmo <= 0 && !reloading))
+                if ((Input.GetKeyDown(KeyCode.R) && !reloading && currentAmmo != maxAmmo[2]) || (currentAmmo <= 0 && !reloading && remainingAmmo > 0))
                 {
                     reloading = true;
                     canShoot = false;
